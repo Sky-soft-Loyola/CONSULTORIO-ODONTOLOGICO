@@ -21,3 +21,4 @@ $acompanate = new Acompañante($paciente,$_POST['nombre_completo'],$_POST['paren
 $acompanate->mostrar_informacion();
 
 ?><br><h1>hola muendo</h1>
+<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi amet laborum dolores non, ipsa incidunt tenetur. Facere et, provident repellat laudantium, animi blanditiis earum consequatur iure dolorum quis necessitatibus suscipit!</p>
