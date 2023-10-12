@@ -1,0 +1,46 @@
+<form action="clases/main.php" method="post">
+   <fieldset>
+    <legend>Paciente</legend>
+    <label for="">nombre</label>
+            <input type="text" name="nombre"><br>
+    <label for="">ci</label>
+            <input name="ci_paciente" type="number"><br>
+    <label for="">ap_materno</label>
+            <input type="text" name="ap_materno"><br>
+    <label for="">ap_paterno</label>
+            <input type="text" name="ap_paterno"><br>
+    <label for="">celular</label>
+            <input name="celular_paciente" type="number" maxlength="8"><br>
+    <label for="">direccion</label>
+            <input name="direccion_paciente" type="text"><br>
+    <label for="">fecha nacimeinto</label> 
+            <input type="date" name="fecha_nacimiento">
+    <label for="">correo</label>
+            <input type="email" name="correo"><br>
+    <label for="">genero</label>
+            M<input type="radio" value="M" name="genero">
+            F<input type="radio" value="F" name="genero"><br>
+    <label for="">nacionalidad</label>
+            <input type="text" name="nacionalidad"><br>
+    <label for="">ocupacion</label>
+            <input type="text" name="ocupacion"><br>            
+    <label for="">estado_civil</label>        
+            <input type="text" name="estado_civil"><br>        
+    
+   </fieldset>
+   <fieldset>
+    <legend>Acompanante</legend>
+    <label for="">ci</label>
+            <input name="ci_acompanante" type="number"><br>
+    <label for="">celular</label>
+            <input name="celular_acompanante" type="number" maxlength="8"><br>
+    <label for="">direccion</label>
+            <input name="direccion_acompanante" type="text"><br>
+      <label for="">nombre completo</label>
+            <input type="text" name="nombre_completo"><br>
+    <label for="">parentesco</label>
+            <input type="text" name="parentesco"><br>
+   </fieldset>
+
+   <input type="submit" value="Enviar">
+</form>
