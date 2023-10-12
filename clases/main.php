@@ -20,4 +20,4 @@ $acompanate = new Acompañante($paciente,$_POST['nombre_completo'],$_POST['paren
 
 $acompanate->mostrar_informacion();
 
-?>
+?><br><h1>hola muendo</h1>
