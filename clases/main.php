@@ -33,3 +33,6 @@ $acompanate->mostrar_informacion();
 <h2>
     holis
 </h2>
+<h2>
+   prueba
+</h2>
