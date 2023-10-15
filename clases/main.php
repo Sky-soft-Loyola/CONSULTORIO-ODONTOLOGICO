@@ -35,4 +35,4 @@ $acompanate->mostrar_informacion();
 </h2>
 <h2>
    prueba
-</h2>
+</h2>sadasdasdasd
