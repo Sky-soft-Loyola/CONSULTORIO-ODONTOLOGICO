@@ -27,4 +27,4 @@ $acompanate->mostrar_informacion();
 <h2>1232132749878</h2>
 
 
-
+<h1>joalaasasdasdsda</h1>
