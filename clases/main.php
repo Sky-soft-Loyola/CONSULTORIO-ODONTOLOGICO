@@ -28,3 +28,8 @@ $acompanate->mostrar_informacion();
 <h2>
     commits
 </h2>
+
+<h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla inventore cum voluptate hic accusamus minus eius praesentium reprehenderit rerum animi perferendis possimus, a voluptatibus officia nisi, eaque distinctio id expedita. </h1>
+<h2>
+    holis
+</h2>
