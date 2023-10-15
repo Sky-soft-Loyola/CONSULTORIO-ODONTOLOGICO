@@ -23,8 +23,8 @@ $acompanate->mostrar_informacion();
 ?><br>
 
 
+<h1>hola mundo </h1>
 
-<h2>1232132749878</h2>
-
-
-<h1>joalaasasdasdsda</h1>
+<h2>
+    commits
+</h2>
