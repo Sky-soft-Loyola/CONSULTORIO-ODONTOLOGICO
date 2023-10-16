@@ -7,7 +7,7 @@ class Conexion{
     private $db = "clinica_odonto (1)";
     private $conect;
 
-    public function__construct(){
+    public function __construct(){
         $connectionString = "mysql:hos=".$this->host.";dbname=".$this->db.";charset=utf8";
         try{
             $this->conect = new PDO($connectionString,$this->user,$this->password);
