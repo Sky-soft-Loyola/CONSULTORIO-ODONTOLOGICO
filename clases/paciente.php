@@ -1,4 +1,3 @@
-
 <?php
 require_once ("./persona.php");
 
@@ -22,7 +21,7 @@ class Paciente extends Persona{
     {
         parent::__construct($ci,$celular,$direccion);
         $this->acompanante= $acompanante;
-        $this->$antecedentes= $antecedentes;
+        $this->antecedentes= $antecedentes;
         $this->nombre = $nombre;
         $this->ap_paterno = $ap_paterno;
         $this->ap_materno = $ap_materno;
@@ -72,6 +71,7 @@ class Paciente extends Persona{
      public function getAp_paterno(){ 
         return $this->ap_paterno;    
     }
+    
     public function getAp_materno(){ 
         return $this->ap_materno;    
     }
