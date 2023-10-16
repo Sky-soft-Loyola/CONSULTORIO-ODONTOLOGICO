@@ -2,8 +2,8 @@
 
 class Conexion{
     private $host = "localhost";
-    private $user = "clinica_odontologica";
-    private $password = "odontologica1234";
+    private $user = "root";
+    private $password = "";
     private $db = "clinica_odonto (1)";
     private $conect;
 
