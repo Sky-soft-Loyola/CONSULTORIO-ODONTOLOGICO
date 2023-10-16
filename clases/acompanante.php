@@ -1,7 +1,7 @@
 <?php
 require_once ("./persona.php");
 
-class Acompañante extends Persona{
+class Acompanante extends Persona{
 
     //atributos
     private $nombre_completo;
