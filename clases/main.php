@@ -14,7 +14,7 @@ require ("./antecedente.php");
 
 
 echo ("<hr>Esta es la clase acompañante<br>");
-$acompanante = new Acompañante($_POST['ci_acompanante'],$_POST['nombre_completo'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
+$acompanante = new Acompanante($_POST['ci_acompanante'],$_POST['nombre_completo'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
 
 $acompanante->mostrar_acompanante();
 
