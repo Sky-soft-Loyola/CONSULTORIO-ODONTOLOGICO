@@ -1,6 +1,9 @@
 <?php
 require_once("paciente.php");
 require_once("antecedente.php");
+require_once("odontologo.php");
+require_once("acompanante.php");
+require_once("historial.php");
 class Conexion{
     private $host = "localhost";
     private $user = "root";
@@ -33,8 +36,102 @@ class Conexion{
         try{
             $insert->execute($arrData);
         } catch (Exception $e){
-            echo("Ya existe este registro");
+            echo("Ya existe este registro antecedentes");
         }         
+    }
+
+    public function insertar_Acompanante($acompanante){
+        if($acompanante->getCi()!=null){
+          
+            $sql="INSERT INTO acompanante (ci_acompanante, nombre_completo, celular, parentesco, direccion) VALUES  (?,?,?,?,?);";
+            $insert = $this->conexion->prepare($sql);    
+            $arrData = array($acompanante->getCi(),
+                            $acompanante->getNombre_completo(),
+                            $acompanante->getCelular(),
+                            $acompanante->getParentesco(),
+                            $acompanante->getDireccion());         
+                            
+            try{
+                $insert->execute($arrData);
+            } catch (Exception $e){
+                echo("Ya existe este registro acompañante");
+            }    
+        }      
+    }
+
+    public function insertar_paciente($paciente){
+        $sql="INSERT INTO `paciente` (`ci_paciente`, `nombre`, `ap_paterno`, `ap_materno`, `fecha_nacimiento`, `correo`, `celular`, `direccion`, `genero`, `nacionalidad`, `ocupacion`, `estado_civil`, `ci_acompañante`, `cod_antecedente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $insert = $this->conexion->prepare($sql);    
+        // Comprobamos si no tiene un acompañante el paciente
+        if ($paciente->getAcompanante()->getCi()==null){
+            $acompanante = NULL;
+        }
+        else
+        {
+            $acompanante =$paciente->getAcompanante()->getCi();
+        }
+     
+        $arrData = array($paciente->getCi(),
+                         $paciente->getNombre(),
+                         $paciente->getAp_paterno(),
+                         $paciente->getAp_materno(),
+                         $paciente->getFecha_nacimiento(),
+                         $paciente->getCorreo(),
+                         $paciente->getCelular(),
+                         $paciente->getDireccion(),
+                         $paciente->getGenero(),
+                         $paciente->getNacionalidad(),
+                         $paciente->getOcupacion(),
+                         $paciente->getEstado_civil(),
+                         $acompanante,
+                         $paciente->getAntecedentes()->getCod_antecedentes());         
+                        
+        print_r($arrData) ;              
+        try{
+            $insert->execute($arrData);
+        } catch (Exception $e){
+            echo("<br><b>Ya existe este registro paciente</b>");
+        }          
+    }
+
+
+    public function insertar_Odontologo($odontologo){
+        $sql="INSERT INTO odontologo ( ci_doctor, contraseña, nombre_completo, celular, direccion, especialidad) VALUES (?,?,?,?,?,?);";
+        $insert = $this->conexion->prepare($sql);    
+        $arrData = array($odontologo->getCi(),
+                         $odontologo->getContrasena(),
+                         $odontologo->getNombre_completo(),
+                         $odontologo->getCelular(),
+                         $odontologo->getDireccion(),
+                         $odontologo->getEspecialidad());     
+                        // INSERT INTO `odontologo` (`ci_doctor`, `contraseña`, `nombre_completo`, `celular`, `direccion`, `especialidad`) VALUES ('1234567', '1234', 'maria fernanda lopez mamani', '22445566', 'av busch la paz', 'pediatria');              
+               
+        try{
+            $insert->execute($arrData);
+        } catch (Exception $e){
+            echo("Ya existe este registro odontologo");
+        }         
+    }
+
+    public function insertar_historial($historial_clinico){
+        $sql="INSERT INTO historial_clinico (cod_atencion, fecha, estado_dientes, dientes, tratamiento, observacion, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        $insert = $this->conexion->prepare($sql);
+        $odontologo = $historial_clinico->getOdontologo();
+        $paciente = $historial_clinico->getPaciente();
+        $ci_acompanante = $paciente->getAcompanante() ? $paciente->getAcompanante()->getCi() : null;
+        $arrData = array($historial_clinico->getCod_antencion(),
+                         $historial_clinico->getFecha(),
+                         $historial_clinico->getEstado_diente(),
+                         $historial_clinico->getDientes(),
+                         $historial_clinico->getTratamiento(),
+                         $historial_clinico->getObservacion(),
+                         $odontologo->getCi(),
+                         $paciente->getCi());                    
+        try{
+            $insert->execute($arrData);
+        } catch (Exception $e){
+            echo("<br><b>Ya existe este registro historial</b>");
+        }          
     }
 
     public function insertar_Usuario($paciente){
