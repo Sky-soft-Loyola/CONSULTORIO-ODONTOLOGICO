@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/Dato2.css">
+	<title></title>
+	<style type="text/css">
+		.table, thead, tr, th{
+			table-layout: fixed;
+			background: rgba(0,0,0,0.1);
+	}
+	</style>
+</head>
+<body>
+	<table border="3">
+		<thead>
+			<tr>
+				<th>
+					<div class="title">
+						<h4>Antecedentes Patologicos</h4>
+					</div>
+					<div class="contenedor">
+						<div class="col11">
+							&nbsp;&nbsp;
+							<input type="radio" name="gender" id="Anemia">
+							<label for="Anemia">Anemia</label>	
+						</div>
+						<div class="col12">
+							<input type="radio" name="gender" id="Enf. Gastricas">
+							<label for="Enf. Gastricas">Enf. Gastricas</label>	
+						</div>
+					</div>
+
+					<div class="contenedor">
+						<div class="col13">
+							&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="gender" id="Asma">
+							<label for="Asma">Asma&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>	
+						</div>
+
+						<div class="col4">
+							<input type="radio" name="gender" id="Hepatitis">
+							<label for="Hepatitis">Hepatitis&nbsp;&nbsp;&nbsp;</label>	
+						</div>
+					</div>
+					<div class="contenedor">
+						<div class="col15">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="gender" id="Cardiopatia">
+							<label for="Cardiopatia">Cardiopatia</label>	
+						</div>
+
+						<div class="col16">
+							<input type="radio" name="gender" id="Hipertension">
+							<label for="Hipertension">Hipertension&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>	
+						</div>
+					</div>
+					<div class="contenedor">
+						<div class="col17">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="gender" id="Diabetes Mel.">
+							<label for="Diabetes Mel.">Diabetes Mel.</label>	
+						</div>
+
+						<div class="col18">
+							<input type="radio" name="gender" id="Tuberculosis">
+							<label for="Tuberculosis">Tuberculosis</label>	
+						</div>
+					</div>
+					<div class="contenedor">
+						<div class="col19">
+							<input type="radio" name="gender" id="Epilepsia">
+							<label for="Epilepsia">Epilepsia&nbsp;&nbsp;&nbsp;</label>	
+						</div>
+
+						<div class="col20">
+							<input type="radio" name="gender" id="VIH">
+							<label for="VIH">VIH&nbsp;</label>	
+						</div>
+					</div>
+					<div class="col3">
+						<div class="input-box1">
+							<input type="radio" name="gender" id="Anemia">
+							<label for="Anemia">Otros&nbsp;</label>
+							<input type="text" placeholder="" required>
+						</div>
+					</div>
+
+
+					<div class="contenedor">
+						<div class="col4">
+							<h4>Embarazo</h4>
+							<p>&nbsp;</p>
+							<input type="radio" name="gender" id="Si">
+							<label for="Si">Si</label>
+							<input type="radio" name="gender" id="No">
+							<label for="No">No</label>
+							<p>&nbsp;</p>
+							<div class="obs">
+								<input type="text" placeholder="" required>
+							</div>
+							<h4>Observaciones</h4>
+						</div>
+						<div class="col4">
+							<h4>Alergias</h4>
+							<p>&nbsp;</p>
+							<input type="radio" name="gender" id="Si">
+							<label for="Si">Si</label>
+							<input type="radio" name="gender" id="No">
+							<label for="No">No</label>
+							<p>&nbsp;</p>
+							<div class="obs">
+								<input type="text" placeholder="" required>
+							</div>
+							<h4>Observaciones</h4>
+						</div>
+					</div>			
+				</th>
+				<th>
+					<div class="acompañante">
+						<h4>Acompañante</h4>
+					</div>
+					<div class="acom">
+						<input type="radio" name="gender" id="Si">
+						<label for="Si">Si</label>
+						<input type="radio" name="gender" id="No">
+						<label for="No">No</label>
+					</div>
+					<form action="#">
+						<div class="contenedor2">
+							<div class="input-box">
+								<span class="Nombre">Nombre &nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<input type="text" placeholder="Nombre" required>	
+							</div>
+							<div class="input-box">
+								<label for="Apellido Paterno">A. Paterno</label>
+								<input type="text" placeholder="Apellido Paterno" name="Apellido Paterno" required>
+							</div>
+							<div class="input-box">
+								<label for="Apellido Materno">A. Materno</label>
+								<input type="text" placeholder="Apellido Materno" name="Apellido Materno" required>
+							</div>
+							<div class="input-box">
+								<label for="Celular">Celular&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<input type="number" placeholder="Celular" name="Celular" required>
+							</div>
+							<div class="input-box">
+								<label for="Direccion">Direccion&nbsp;&nbsp;</label>
+								<input type="text" placeholder="Direccion" name="Direcccion" required>
+							</div>
+							<div class="input-box">
+								<label for="Parentezco">Parentezco</label>
+								<input type="text" placeholder="Parentezco" name="Parentezco" required>
+							</div>
+							<div class="bot">
+								<a href="Registro.html" class="btn2">Cancelar</a>
+								<a href="" class="btn1">Sigiente</a>
+							</div>		
+						</div>				
+					</form>
+				</th>
+			</tr>
+		</thead>
+	</table>
+</body>
+</html>
