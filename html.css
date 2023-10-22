@@ -1,0 +1,34 @@
+.Contenedor {
+    display: flex;
+}
+
+.txt-1 {
+    margin: 0px 100px;
+}
+
+.txt-2 {
+    margin: 0px 1000px;
+}
+
+.input-box-2 input {
+    height: 500%;
+    background: transparent;
+    font-size: 6.5px;
+    margin: 10px 0 20px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(15, 14, 14, 0.2);
+    border-radius: 40px;
+}
+
+.Contenido {
+    display: flex;
+}
+
+.txt-3 {
+    margin: 0px 100px;
+}
+
+.txt-4 {
+    margin: 0px 1000px;
+}
