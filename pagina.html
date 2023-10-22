@@ -1,22 +1,22 @@
 <form action="clases/main.php" method="post">
         <fieldset>
          <legend>Paciente</legend>
+         <label for="">ci</label>
+         <input name="ci_paciente" type="number"><br>
          <label for="">nombre</label>
                  <input type="text" name="nombre"><br>
-         <label for="">ci</label>
-                 <input name="ci_paciente" type="number"><br>
+        <label for="">ap_paterno</label>
+                 <input type="text" name="ap_paterno"><br>
          <label for="">ap_materno</label>
                  <input type="text" name="ap_materno"><br>
-         <label for="">ap_paterno</label>
-                 <input type="text" name="ap_paterno"><br>
-         <label for="">celular</label>
-                 <input name="celular_paciente" type="number" maxlength="8"><br>
-         <label for="">direccion</label>
-                 <input name="direccion_paciente" type="text"><br>
          <label for="">fecha nacimeinto</label> 
                  <input type="date" name="fecha_nacimiento">
          <label for="">correo</label>
                  <input type="email" name="correo"><br>
+         <label for="">celular</label>
+                 <input name="celular_paciente" type="number" maxlength="8"><br>
+         <label for="">direccion</label>
+                 <input name="direccion_paciente" type="text"><br>
          <label for="">genero</label>
                  M<input type="radio" value="M" name="genero">
                  F<input type="radio" value="F" name="genero"><br>
@@ -32,14 +32,14 @@
          <legend>Acompanante</legend>
          <label for="">ci</label>
                  <input name="ci_acompanante" type="number"><br>
+         <label for="">nombre completo</label>
+                 <input type="text" name="nombre_completo"><br>
          <label for="">celular</label>
                  <input name="celular_acompanante" type="number" maxlength="8"><br>
-         <label for="">direccion</label>
-                 <input name="direccion_acompanante" type="text"><br>
-           <label for="">nombre completo</label>
-                 <input type="text" name="nombre_completo"><br>
          <label for="">parentesco</label>
                  <input type="text" name="parentesco"><br>
+                 <label for="">direccion</label>
+                 <input name="direccion_acompanante" type="text"><br>
         </fieldset>
      
         <fieldset>
@@ -59,15 +59,15 @@
             </fieldset>
      
             <fieldset>
-             <legend>historial</legend>
-             <label for="">Codigo antencion</label>
+             <legend>historial Clinico</legend>
+             <label for="">Codigo atencion</label>
                      <input name="cod_atencion" type="number"><br>
              <label for="">Fecha</label>
                      <input name="fecha" type="date" ><br>
-             <label for="">Dientes</label>
-                     <input  name="dientes" type="number"><br>
              <label for="">Estado_diente</label>
                      <input name="estado_diente" type="text"><br>
+             <label for="">Dientes</label>
+                     <input  name="dientes" type="number"><br>
              <label for="">Tratamiento</label>
                      <input name="tratamiento" type="text"><br>
              <label for="">Observacion</label>
@@ -75,7 +75,7 @@
             </fieldset>
      
             <fieldset>
-             <legend>historial</legend>
+             <legend>antecedentes Medicos</legend>
              <label for="">codigo antecedentes</label>
                      <input name="cod_antecedentes" type="number"><br>
              <label for="">alergias</label>
