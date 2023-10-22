@@ -8,7 +8,7 @@ class Acompanante extends Persona{
     private $parentesco;
  
 
-    public function __construct($nombre_completo,$parentesco,$ci,$celular,$direccion)
+    public function __construct($ci,$nombre_completo,$celular,$parentesco,$direccion)
     {
         parent::__construct($ci,$celular,$direccion,);
         $this->nombre_completo = $nombre_completo;
@@ -22,7 +22,6 @@ class Acompanante extends Persona{
         echo ($this->getNombre_completo()."<br>");
         echo ($this->getParentesco()."<br>");
        
-
     }
 
     //Encapsuladores

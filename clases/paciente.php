@@ -9,6 +9,7 @@ class Paciente extends Persona{
     private $ap_materno;
     private $fecha_nacimiento;
     private $correo;
+    private $celular;
     private $genero;
     private $nacionalidad;
     private $ocupacion;
@@ -17,7 +18,7 @@ class Paciente extends Persona{
     private $antecedentes;
   
     
-    public function __construct( $antecedentes,$acompanante, $nombre,$ap_paterno,$ap_materno,$fecha_nacimiento,$correo,$genero,$nacionalidad,$ocupacion,$estado_civil,$ci,$celular,$direccion)
+    public function __construct( $antecedentes,$acompanante, $ci,$nombre,$ap_paterno,$ap_materno,$fecha_nacimiento,$correo,$celular,$genero,$nacionalidad,$ocupacion,$estado_civil,$direccion)
     {
         parent::__construct($ci,$celular,$direccion);
         $this->acompanante= $acompanante;
@@ -27,6 +28,7 @@ class Paciente extends Persona{
         $this->ap_materno = $ap_materno;
         $this->fecha_nacimiento = $fecha_nacimiento;
         $this->correo = $correo;
+        $this->celular = $celular;
         $this->genero = $genero;
         $this->nacionalidad = $nacionalidad;
         $this->ocupacion = $ocupacion;
@@ -44,6 +46,7 @@ class Paciente extends Persona{
         echo($this-> getAp_materno()."<br>");
         echo($this-> getFecha_nacimiento()."<br>");
         echo($this-> getCorreo()."<br>");
+        echo($this-> getCelular()."<br>");
         echo($this-> getGenero()."<br>");
         echo($this-> getNacionalidad()."<br>");
         echo($this-> getOcupacion()."<br>");
@@ -81,6 +84,9 @@ class Paciente extends Persona{
     public function getCorreo(){ 
         return $this->correo;    
     }
+    public function getCelular(){ 
+        return $this->celular;    
+    }
     public function getGenero(){ 
         return $this->genero;    
     }
@@ -117,6 +123,9 @@ class Paciente extends Persona{
     public function setCorreo($correo){ 
             $this->correo = $correo;    
     }
+    public function setCelular($celular){ 
+        $this->celular = $celular;    
+}
     public function setGenero($genero){ 
             $this->genero = $genero;    
     }

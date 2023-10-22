@@ -10,7 +10,7 @@ class Odontologo extends Persona{
 
   
     
-    public function __construct($contrasena,$nombre_completo,$especialidad,$ci,$celular,$direccion)
+    public function __construct($ci,$contrasena, $nombre_completo, $celular, $direccion, $especialidad)
     {
         parent::__construct($ci,$celular,$direccion);
         $this->contrasena = $contrasena;

@@ -11,7 +11,7 @@ class Historial_clinico{
     private  $odontologo;
 
 //CONSTRUCTOR
-    public function __construct($odontologo,$paciente,$cod_atencion, $fecha, $dientes, $estado_diente, $tratamiento, $observacion)
+    public function __construct($odontologo,$paciente,$cod_atencion, $fecha,$estado_diente, $dientes,  $tratamiento, $observacion)
     {
         $this->paciente = $paciente;
         $this->odontologo= $odontologo;
