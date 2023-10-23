@@ -114,19 +114,24 @@ class Conexion{
     }
 
     public function insertar_historial($historial_clinico){
-        $sql="INSERT INTO historial_clinico (cod_atencion, fecha, estado_dientes, dientes, tratamiento, observacion, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-        $insert = $this->conexion->prepare($sql);
+        $aux=$historial_clinico->getLista_diente();
         $odontologo = $historial_clinico->getOdontologo();
         $paciente = $historial_clinico->getPaciente();
-        $ci_acompanante = $paciente->getAcompanante() ? $paciente->getAcompanante()->getCi() : null;
-        $arrData = array($historial_clinico->getCod_antencion(),
-                         $historial_clinico->getFecha(),
-                         $historial_clinico->getEstado_diente(),
-                         $historial_clinico->getDientes(),
-                         $historial_clinico->getTratamiento(),
-                         $historial_clinico->getObservacion(),
-                         $odontologo->getCi(),
-                         $paciente->getCi());                    
+        $sql="INSERT INTO historial_clinico (cod_atencion, fecha, estado_dientes, dientes, tratamiento, observacion, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        for($i=0;$i<= count($aux);$i++){
+            $insert = $this->conexion->prepare($sql);
+            $arrData = array($historial_clinico->getCod_antencion(),
+                            $historial_clinico->getFecha(),
+                            $aux[$i]->getNumero_diente(),
+                            $aux[$i]->getTratamiento(),
+                            $aux[$i]->getObservacion(),
+                            $odontologo->getCi(),
+                            $paciente->getCi());
+        }
+        
+        
+       // $ci_acompanante = $paciente->getAcompanante() ? $paciente->getAcompanante()->getCi() : null;
+                            
         try{
             $insert->execute($arrData);
         } catch (Exception $e){

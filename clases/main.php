@@ -47,10 +47,13 @@ $historial_clinico = new Historial_clinico($odontologo,$paciente,$_POST['cod_ate
 
 //$historial_clinico->mostrar_historial();
 
+echo ("<hr>Esta es la clase dientes<br>");
+$lista_dientes = new Dientes($lista_dientes,$_POST['diente 1'],$_POST['diente 2'],$_POST['diente 3'],$_POST['diente 4'],$_POST['diente 5'],$_POST['diente 6']);
+
 $conect->insertar_Odontologo($odontologo);
 $conect->insertar_Acompanante($acompanante);
 $conect->insertar_paciente($paciente);
-$conect->insertar_historial($historial_clinico,$odontologo,$paciente);
+$conect->insertar_historial($historial_clinico);
 ?>
 
 
