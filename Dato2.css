@@ -1,0 +1,124 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+body{
+	padding: 70px;
+	background-image: url(https://img.freepik.com/foto-gratis/concepto-cirugia-implantes-dentales-herramienta-pluma-creada-trazado-recorte-incluido-jpeg-facil-componer_460848-10711.jpg?size=626&ext=jpg&ga=GA1.1.502213791.1697831688&semt=sph);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.contenedor{
+	color: #40F8FF;
+	padding: 15px 10px;
+	display: flex;
+	justify-content: center;
+}
+.title{
+	color: #40F8FF;
+	padding: 20px;
+}
+.col11{
+	cursor: pointer;
+	margin: 0 90px;
+}
+.col12{
+	cursor: pointer;
+	margin: 0 60px;
+}
+.col13{
+	cursor: pointer;
+	margin: 0 45px;
+}
+.col14{
+	cursor: pointer;
+	margin: 0 30px;
+}
+.col15{
+	cursor: pointer;
+	margin: 0 40px;
+}
+.col16{
+	cursor: pointer;
+	margin: 0 80px;
+}
+.col17{
+	cursor: pointer;
+	margin: 0 25px;
+}
+.col18{
+	cursor: pointer;
+	margin: 0 80px;
+}
+.col19{
+	cursor: pointer;
+	margin: 0 45px;
+}
+.col20{
+	cursor: pointer;
+	margin: 0 80px;
+}
+.col3{
+	color: #40F8FF;
+	margin: 10px;
+}
+.input-box1 input{
+	cursor: pointer;
+	border-radius: 10px;
+}.col4{
+	margin: 0 50px;
+}
+.obs input{
+	box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+	border-radius: 15px;
+}
+
+.acompañante{
+	color: #40F8FF;
+	padding: 10px;
+}
+.acom{
+	color: #40F8FF;
+}
+.contenedor2{
+	color: #40F8FF;
+	padding: 50px 20px;
+	cursor: pointer;
+}
+.input-box{
+	padding-bottom: 30px;
+	text-align: center;
+}
+.bot .btn1 {
+	background-color: #14ff46;
+	color: black;
+	align-items: center;
+	text-decoration: none;
+	width: 100%;
+	padding: 5px 5px;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	font-size: 16px;
+	font-weight: 200;
+	margin-top: 50px;
+}
+.bot .btn2 {
+	background-color: #ff0300;
+	color: black;
+	align-items: center;
+	text-decoration: none;
+	width: 100%;
+	padding: 5px 5px;
+	border-radius: 40px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+	font-size: 16px;
+	font-weight: 200;
+	margin-top: 50px;
+}
