@@ -41,6 +41,8 @@ $conect->insertar_Antecedente($paciente);
 
 //echo ("<hr>Esta es la clase historial clinico<br>");
 //$historial_clinico = new Historial_clinico($odontologo,$paciente,$_POST['cod_atencion'],$_POST['fecha'],$_POST['estado_diente'],$_POST['dientes'],$_POST['tratamiento'],$_POST['observacion']);
+echo ("<hr>Esta es la clase historial clinico<br>");
+$historial_clinico = new Historial_clinico($odontologo,$paciente,$_POST['cod_atencion'],$_POST['fecha'],$_POST['estado_diente'],$_POST['dientes'],$_POST['tratamiento']);
 
 $historial_clinico->mostrar_historial();
 */

@@ -116,14 +116,14 @@ class Conexion{
         $aux=$historial_clinico->getLista_diente();
         $odontologo = $historial_clinico->getOdontologo();
         $paciente = $historial_clinico->getPaciente();
-        $sql="INSERT INTO historial_clinico (cod_atencion, fecha, estado_dientes, dientes, tratamiento, observacion, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+        $sql="INSERT INTO historial_clinico (cod_atencion, fecha, estado_dientes, dientes, tratamiento, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?, ?);";
         for($i=0;$i<= count($aux);$i++){
             $insert = $this->conexion->prepare($sql);
             $arrData = array($historial_clinico->getCod_antencion(),
                             $historial_clinico->getFecha(),
                             $aux[$i]->getNumero_diente(),
                             $aux[$i]->getTratamiento(),
-                            $aux[$i]->getObservacion(),
+                            
                             $odontologo->getCi(),
                             $paciente->getCi());
         }
