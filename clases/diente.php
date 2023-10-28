@@ -14,13 +14,20 @@ class Dientes{
   
     }
 
-    public function mostrar_historial(){
+    public function mostrar_diente(){
         echo("<b>Datos del Diente</b><br>");
         echo ($this->getNumero_diente()."<br>");
         echo ($this->getTratamiento()."<br>");
   
     }
    
+
+    //metedo para insertar datos 
+    public function insertar_diente($numero_diente,$tratamiento){
+        $this->setNumero_diente($numero_diente);
+        $this->setTratamiento($tratamiento);
+
+    }
 
     //ENCAPSULADORES
 
