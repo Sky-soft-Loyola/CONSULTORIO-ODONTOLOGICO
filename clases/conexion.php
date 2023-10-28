@@ -24,13 +24,12 @@ class Conexion{
     }
     
     public function insertar_Antecedente($paciente){
-        $sql="INSERT INTO antecedentes_medicos (cod_antecedente, alergias, medicacion, patologia, observacion, tratamiento_medico) VALUES (?,?,?,?,?,?);";
+        $sql="INSERT INTO antecedentes_medicos (cod_antecedente, alergias, medicacion, patologia, tratamiento_medico) VALUES (?,?,?,?,?);";
         $insert = $this->conexion->prepare($sql);    
         $arrData = array($paciente->getAntecedentes()->getCod_antecedentes(),
                          $paciente->getAntecedentes()->getAlergias(),
                          $paciente->getAntecedentes()->getMedicacion(),
                          $paciente->getAntecedentes()->getPatologia(),
-                         $paciente->getAntecedentes()->getObservacion(),
                          $paciente->getAntecedentes()->getTratamiento_medico());     
                          
         try{
@@ -60,7 +59,7 @@ class Conexion{
     }
 
     public function insertar_paciente($paciente){
-        $sql="INSERT INTO `paciente` (`ci_paciente`, `nombre`, `ap_paterno`, `ap_materno`, `fecha_nacimiento`, `correo`, `celular`, `direccion`, `genero`, `nacionalidad`, `ocupacion`, `estado_civil`, `ci_acompañante`, `cod_antecedente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        $sql="INSERT INTO `paciente` (`ci_paciente`, `nombre`, `ap_paterno`, `ap_materno`, `fecha_nacimiento`, `correo`, `celular`, `direccion`, `genero`, `nacionalidad`, `ocupacion`, `estado_civil`, `ci_acompanante`, `cod_antecedente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         $insert = $this->conexion->prepare($sql);    
         // Comprobamos si no tiene un acompañante el paciente
         if ($paciente->getAcompanante()->getCi()==null){
