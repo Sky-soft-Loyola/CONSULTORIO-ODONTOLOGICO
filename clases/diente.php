@@ -6,10 +6,10 @@ class Dientes{
 
 
 //CONSTRUCTOR
-    public function __construct($numero_diente,  $tratamiento)
+    public function __construct()
     {
-        $this->numero_diente = $numero_diente;
-        $this->tratamiento = $tratamiento;
+        $this->numero_diente ;
+        $this->tratamiento ;
 
   
     }
