@@ -1,15 +1,15 @@
 <?php 
 class Dientes{
 //ATRIBUTOS
-    private  $numero_diente = array();
-    private  $tratamiento;
+    private  $numero_diente=0;
+    private  $tratamiento="";
 
 
 //CONSTRUCTOR
     public function __construct()
     {
-        $this->numero_diente ;
-        $this->tratamiento ;
+        $this->numero_diente;
+        $this->tratamiento;
 
   
     }

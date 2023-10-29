@@ -20,18 +20,28 @@ class Historial_clinico{
     }
 
     public function mostrar_historial(){
-        echo ($this->getCod_antencion()."<br>");
+        echo ($this->getCod_atencion()."<br>");
         echo ($this->getFecha() . "<br>");
-        echo ($this->getLista_diente() . "<br>");
+        $this->mostrar_lista();
         echo("<b>Datos del acompañante</b><br>");
         $this->paciente->mostrar_paciente();
         echo("<b>Datos del antecedentes</b><br>");
         $this->odontologo->mostrar_odontologo();
     }
    
+    //mostrar la lista de dientes
+    public function mostrar_lista(){
+        foreach ($this->getLista_diente() as $diente){
+            $diente->mostrar_diente();
+        }
+    }
+    
+    //pendiente un metodo para vaciar los elementos 
+        //public function vaciar_el_objeto(){        }
 
+        
     //ENCAPSULADORES
-
+    
 
     // get 
     public function getPaciente(){
@@ -40,7 +50,7 @@ class Historial_clinico{
     public function getOdontologo(){
         return $this->odontologo;
     }
-    public function getCod_antencion(){
+    public function getCod_atencion(){
         return $this->cod_atencion;
     }
     public function getFecha(){
@@ -58,7 +68,7 @@ class Historial_clinico{
     public function setOdontologo($odontologo){
         $this->odontologo = $odontologo;
     }
-    public function setCod_antencion($cod_antencion){
+    public function setCod_atencion($cod_antencion){
         $this->cod_atencion = $cod_antencion;
     }
     public function setFecha($fecha){
