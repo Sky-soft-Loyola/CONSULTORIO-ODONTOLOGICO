@@ -1,46 +1,95 @@
 <form action="clases/main.php" method="post">
-   <fieldset>
-    <legend>Paciente</legend>
-    <label for="">nombre</label>
-            <input type="text" name="nombre"><br>
-    <label for="">ci</label>
-            <input name="ci_paciente" type="number"><br>
-    <label for="">ap_materno</label>
-            <input type="text" name="ap_materno"><br>
-    <label for="">ap_paterno</label>
-            <input type="text" name="ap_paterno"><br>
-    <label for="">celular</label>
-            <input name="celular_paciente" type="number" maxlength="8"><br>
-    <label for="">direccion</label>
-            <input name="direccion_paciente" type="text"><br>
-    <label for="">fecha nacimeinto</label> 
-            <input type="date" name="fecha_nacimiento">
-    <label for="">correo</label>
-            <input type="email" name="correo"><br>
-    <label for="">genero</label>
-            M<input type="radio" value="M" name="genero">
-            F<input type="radio" value="F" name="genero"><br>
-    <label for="">nacionalidad</label>
-            <input type="text" name="nacionalidad"><br>
-    <label for="">ocupacion</label>
-            <input type="text" name="ocupacion"><br>            
-    <label for="">estado_civil</label>        
-            <input type="text" name="estado_civil"><br>        
-    
-   </fieldset>
-   <fieldset>
-    <legend>Acompanante</legend>
-    <label for="">ci</label>
-            <input name="ci_acompanante" type="number"><br>
-    <label for="">celular</label>
-            <input name="celular_acompanante" type="number" maxlength="8"><br>
-    <label for="">direccion</label>
-            <input name="direccion_acompanante" type="text"><br>
-      <label for="">nombre completo</label>
-            <input type="text" name="nombre_completo"><br>
-    <label for="">parentesco</label>
-            <input type="text" name="parentesco"><br>
-   </fieldset>
-
-   <input type="submit" value="Enviar">
-</form>
+        <fieldset>
+         <legend>Paciente</legend>
+         <label for="">nombre</label>
+                 <input type="text" name="nombre"><br>
+         <label for="">ci</label>
+                 <input name="ci_paciente" type="number"><br>
+         <label for="">ap_materno</label>
+                 <input type="text" name="ap_materno"><br>
+         <label for="">ap_paterno</label>
+                 <input type="text" name="ap_paterno"><br>
+         <label for="">celular</label>
+                 <input name="celular_paciente" type="number" maxlength="8"><br>
+         <label for="">direccion</label>
+                 <input name="direccion_paciente" type="text"><br>
+         <label for="">fecha nacimeinto</label> 
+                 <input type="date" name="fecha_nacimiento">
+         <label for="">correo</label>
+                 <input type="email" name="correo"><br>
+         <label for="">genero</label>
+                 M<input type="radio" value="M" name="genero">
+                 F<input type="radio" value="F" name="genero"><br>
+         <label for="">nacionalidad</label>
+                 <input type="text" name="nacionalidad"><br>
+         <label for="">ocupacion</label>
+                 <input type="text" name="ocupacion"><br>            
+         <label for="">estado_civil</label>        
+                 <input type="text" name="estado_civil"><br>        
+         
+        </fieldset>
+        <fieldset>
+         <legend>Acompanante</legend>
+         <label for="">ci</label>
+                 <input name="ci_acompanante" type="number"><br>
+         <label for="">celular</label>
+                 <input name="celular_acompanante" type="number" maxlength="8"><br>
+         <label for="">direccion</label>
+                 <input name="direccion_acompanante" type="text"><br>
+           <label for="">nombre completo</label>
+                 <input type="text" name="nombre_completo"><br>
+         <label for="">parentesco</label>
+                 <input type="text" name="parentesco"><br>
+        </fieldset>
+     
+        <fieldset>
+             <legend>Odontologo</legend>
+             <label for="">ci_doctor</label>
+                     <input name="ci_doctor" type="number"><br>
+             <label for="">contrasena</label>
+                     <input name="contrasena" type="password" maxlength="8"><br>
+             <label for="">nombre completo</label>
+                     <input  name="nombre_completo" type="text"><br>
+             <label for="">celular</label>
+                     <input name="celular_odontologo" type="number"><br>
+             <label for="">direccion_odontologo</label>
+                     <input name="direccion_odontologo" type="text"><br>
+             <label for="">Especialidad</label>
+                     <input  name="especialidad" type="text"><br>
+            </fieldset>
+     
+            <fieldset>
+             <legend>historial</legend>
+             <label for="">Codigo antencion</label>
+                     <input name="cod_atencion" type="number"><br>
+             <label for="">Fecha</label>
+                     <input name="fecha" type="date" ><br>
+             <label for="">Dientes</label>
+                     <input  name="dientes" type="number"><br>
+             <label for="">Estado_diente</label>
+                     <input name="estado_diente" type="text"><br>
+             <label for="">Tratamiento</label>
+                     <input name="tratamiento" type="text"><br>
+             <label for="">Observacion</label>
+                     <input  name="observacion" type="text"><br>
+            </fieldset>
+     
+            <fieldset>
+             <legend>historial</legend>
+             <label for="">codigo antecedentes</label>
+                     <input name="cod_antecedentes" type="number"><br>
+             <label for="">alergias</label>
+                     <input name="alergias" type="text" ><br>
+             <label for="">medicacion</label>
+                     <input  name="medicacion" type="text"><br>
+             <label for="">patologia</label>
+                     <input name="patologia" type="text"><br>
+             <label for="">observacion</label>
+                     <input name="observacion" type="text"><br>
+             <label for="">tratamiento_medico</label>
+                     <input  name="tratamiento_medico" type="text"><br>
+            </fieldset>
+         
+     
+        <input type="submit" value="Enviar">
+     </form>

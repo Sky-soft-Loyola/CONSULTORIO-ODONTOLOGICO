@@ -5,21 +5,26 @@ class Paciente extends Persona{
 
 //atributos
     private $nombre;
-    private $ap_materno;
     private $ap_paterno;
+    private $ap_materno;
     private $fecha_nacimiento;
     private $correo;
     private $genero;
     private $nacionalidad;
     private $ocupacion;
     private $estado_civil;
+    private $acompanante;
+    private $antecedentes;
+  
     
-    public function __construct($nombre,$ap_materno,$ap_paterno,$fecha_nacimiento,$correo,$genero,$nacionalidad,$ocupacion,$estado_civil,$ci,$celular,$direccion)
+    public function __construct( $antecedentes,$acompanante, $nombre,$ap_paterno,$ap_materno,$fecha_nacimiento,$correo,$genero,$nacionalidad,$ocupacion,$estado_civil,$ci,$celular,$direccion)
     {
         parent::__construct($ci,$celular,$direccion);
+        $this->acompanante= $acompanante;
+        $this->antecedentes= $antecedentes;
         $this->nombre = $nombre;
-        $this->ap_materno = $ap_materno;
         $this->ap_paterno = $ap_paterno;
+        $this->ap_materno = $ap_materno;
         $this->fecha_nacimiento = $fecha_nacimiento;
         $this->correo = $correo;
         $this->genero = $genero;
@@ -29,30 +34,46 @@ class Paciente extends Persona{
   
     }
 
-    public function mostrar(){
+    
+
+    public function mostrar_paciente(){
+        echo("<b>Datos del paciente</b><br>");
+        echo ($this->mostrar_variables());
         echo($this-> getNombre()."<br>");
-        echo($this-> getAp_materno()."<br>");
         echo($this-> getAp_paterno()."<br>");
+        echo($this-> getAp_materno()."<br>");
         echo($this-> getFecha_nacimiento()."<br>");
         echo($this-> getCorreo()."<br>");
         echo($this-> getGenero()."<br>");
         echo($this-> getNacionalidad()."<br>");
         echo($this-> getOcupacion()."<br>");
         echo($this-> getEstado_civil()."<br>");
-        $this->mostrar_variables();
+        echo("<b>Datos del acompañante</b><br>");
+        $this->acompanante->mostrar_acompanante();
+        echo("<b>Datos del antecedentes</b><br>");
+        $this->antecedentes->mostrar_antecedentes();
         
     }
 
 
 //Encapsuladores
 //get
+
+     public function getAcompanante(){ 
+        return $this->acompanante;    
+    }       
+     public function getAntecedentes(){ 
+        return $this->antecedentes;    
+    }
     public function getNombre(){ 
         return $this->nombre;    
-    }        public function getAp_materno(){ 
-        return $this->ap_materno;    
-    }
-    public function getAp_paterno(){ 
+    }       
+     public function getAp_paterno(){ 
         return $this->ap_paterno;    
+    }
+    
+    public function getAp_materno(){ 
+        return $this->ap_materno;    
     }
     public function getFecha_nacimiento(){ 
         return $this->fecha_nacimiento;    
@@ -75,14 +96,20 @@ class Paciente extends Persona{
 
 
     // set
+    public function setAcompanante($acompanante){
+        $this->acompanante=$acompanante;
+    }
+    public function setAntecedentes($antecedentes){
+        $this->antecedentes=$antecedentes;
+    }
     public function setNombre($nombre){ 
             $this->nombre = $nombre;    
     }
-    public function setAp_materno($ap_materno){ 
-            $this->ap_materno = $ap_materno;    
-    }
     public function setAp_paterno($ap_paterno){ 
             $this->ap_paterno = $ap_paterno;    
+    }
+    public function setAp_materno($ap_materno){ 
+            $this->ap_materno = $ap_materno;    
     }
     public function setFecha_nacimiento($fecha_nacimiento){ 
             $this->fecha_nacimiento = $fecha_nacimiento;    
