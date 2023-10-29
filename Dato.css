@@ -21,12 +21,13 @@ body{
 	margin: 0 28px;
 	border-radius: 5px;
 	overflow: hidden;
-	background: rgba(0,0,0,0.5);
+	background: rgba(0,0,0,0.6);
 }
 h2{
 	padding: 10px;
 	font-size: 26px;
 	font-weight: bold;
+	color: #40F8FF;
 	text-align: center;
 	padding-bottom: 8px;
 	border-bottom: 1px solid silver;
@@ -48,15 +49,16 @@ h2{
 }
 .input-box label, .gender-title{
 	width: 80%;
-	color: #fff;
+	color: #40F8FF;
 	font-weight: bold;
 	margin: 5px 0;
+	text-align: left;
 }
 .gender-title{
 	font-size: 16px;
 }
 .input-box input{
-	height: 40px;
+	height: 30px;
 	width: 95%;
 	padding: 0 10px;
 	border-radius: 5px;
@@ -67,8 +69,9 @@ h2{
 	box-shadow: 0 3px 6px rgba(0,0,0,0.2);
 }
 .gender-category label{
+	color: #40F8FF;
 	padding: 0 20px 0 5px;
-	font-size: 14px;
+	font-size: 16px;
 }
 .gender-category{
 	color: gainsboro;
@@ -93,6 +96,7 @@ h2{
 }
 .button-container button a{
 	text-align: center;
+	color: #40F8FF;
 	text-decoration: none;
 }
 .button-container button:hover{
