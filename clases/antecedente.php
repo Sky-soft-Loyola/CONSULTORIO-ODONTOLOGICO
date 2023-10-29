@@ -5,17 +5,16 @@ class Antecedentes_medicos{
     private  $alergias;
     private  $medicacion;
     private  $patologia;
-    private  $observacion;
     private  $tratamiento_medico;
 
 //CONSTRUCTOR
-    public function __construct($cod_antecedentes, $alergias, $medicacion, $patologia, $observacion, $tratamiento_medico)
+    public function __construct($cod_antecedentes, $alergias, $medicacion, $patologia, $tratamiento_medico)
     {
         $this->cod_antecedentes = $cod_antecedentes;
         $this->alergias= $alergias;
         $this->medicacion= $medicacion;
         $this->patologia = $patologia;
-        $this->observacion= $observacion;
+
         $this->tratamiento_medico= $tratamiento_medico;
     }
 
@@ -27,7 +26,6 @@ class Antecedentes_medicos{
         echo ($this->getAlergias() . "<br>");
         echo ($this->getMedicacion()."<br>");
         echo ($this->getPatologia() . "<br>");
-        echo ($this->getObservacion()."<br>");
         echo ($this->getTratamiento_medico()."<br>");
     }
 
@@ -48,9 +46,6 @@ class Antecedentes_medicos{
     public function getPatologia(){
         return $this->patologia;
     }
-    public function getObservacion(){
-        return $this->observacion;
-    }
     public function getTratamiento_medico(){
         return $this->tratamiento_medico;
     }
@@ -66,9 +61,6 @@ class Antecedentes_medicos{
     
     public function setpatologia($patologia){
         $this->patologia = $patologia;
-    }
-    public function setObservacion($observacion){
-        $this->observacion = $observacion;
     }
     public function setTratamiento_medico($tratamiento_medico){
         $this->tratamiento_medico = $tratamiento_medico;

@@ -1,41 +1,32 @@
 <?php 
+
 class Historial_clinico{
 //ATRIBUTOS
     private  $cod_atencion;
     private  $fecha;
-    private  $dientes;
-    private  $estado_diente;
-    private  $tratamiento;
-    private  $observacion;
     private  $paciente;
     private  $odontologo;
+    private  $lista_dientes;
 
 //CONSTRUCTOR
-    public function __construct($odontologo,$paciente,$cod_atencion, $fecha, $dientes, $estado_diente, $tratamiento, $observacion)
+    public function __construct($odontologo,$paciente,$cod_atencion, $fecha, $lista_dientes)
     {
         $this->paciente = $paciente;
         $this->odontologo= $odontologo;
         $this->cod_atencion = $cod_atencion;
-        $this->fecha= $fecha;
-        $this->dientes= $dientes;
-        $this->estado_diente = $estado_diente;
-        $this->tratamiento = $tratamiento;
-        $this->observacion= $observacion;
+        $this->fecha = $fecha;
+        $this->lista_dientes = $lista_dientes;
   
     }
 
     public function mostrar_historial(){
         echo ($this->getCod_antencion()."<br>");
         echo ($this->getFecha() . "<br>");
-        echo ($this->getDientes()."<br>");
-        echo ($this->getEstado_diente() . "<br>");
-        echo ($this->getTratamiento()."<br>");
-        echo ($this->getObservacion()."<br>");
+        echo ($this->getLista_diente() . "<br>");
         echo("<b>Datos del acompañante</b><br>");
         $this->paciente->mostrar_paciente();
         echo("<b>Datos del antecedentes</b><br>");
         $this->odontologo->mostrar_odontologo();
-
     }
    
 
@@ -55,17 +46,8 @@ class Historial_clinico{
     public function getFecha(){
         return $this->fecha;
     }
-    public function getDientes(){
-        return $this->dientes;
-    }
-    public function getEstado_diente(){
-        return $this->estado_diente;
-    }
-    public function getTratamiento(){
-        return $this->tratamiento;
-    }
-    public function getObservacion(){
-        return $this->observacion;
+    public function getLista_diente(){
+        return $this->lista_dientes;
     }
 
     // set
@@ -82,19 +64,9 @@ class Historial_clinico{
     public function setFecha($fecha){
         $this->fecha = $fecha;
     }
-    public function setDientes($dientes){
-        $this->dientes = $dientes;
+    public function setLista_diente($lista_dientes){
+        $this->lista_dientes = $lista_dientes;
     }
-    public function setEstado_diente($estado_diente){
-        $this->estado_diente = $estado_diente;
-    }
-    public function setTratamiento($tratamiento){
-        $this->tratamiento = $tratamiento;
-    }
-    public function setObservacion($observacion){
-        $this->observacion = $observacion;
-    }
-  
 
 }
 

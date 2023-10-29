@@ -1,0 +1,46 @@
+//sugerencias para el desarrollo de la clase diente y la implementacion de la clase diente a  la clase odontologo
+class Diente(){
+	-numero_diente (int)
+	-tratamiento (string)
+	-observacion(string)
+
+funciones constructor
+funciones get y set
+
+}
+version 1
+class Historial($odontologo,$paciente,$cod_atencion,$fecha){
+
+	$this->odontologo = $odontologo;
+	$this->paciente = $paciente;
+	$this->cod_atencion = $cod_atencion;
+	$this-> fecha = $fecha;
+	$this -> lista_dientes = array();
+
+function constructor
+function get y set
+function añadir_dientes($dientes){
+$this->getLista_dientes.append($dientes);
+}
+}
+
+version 2
+class Historial($odontologo,$paciente,$cod_atencion,$fecha,$lista_dientes){
+
+	$this->odontologo = $odontologo;
+	$this->paciente = $paciente;
+	$this->cod_atencion = $cod_atencion;
+	$this-> fecha = $fecha;
+	$this -> lista_dientes = $lista_dientes;
+
+function constructor
+function get y set
+
+}
+
+
+
+$historial = new Historial($odontologo,$paciente,$_post(cod_antencion),$_post(fecha));
+
+//añadir dientes
+$historial -> añadir_dientes($dientes)
