@@ -7,7 +7,7 @@ require_once ("./php/Path_constantes.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="../css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../estilos/Dato2.css">
 </head>
 <body>
@@ -20,7 +20,7 @@ require_once ("./php/Path_constantes.php");
           <div class="row">
             <div class="col-3 col-md-6 offset-md-3" >
               <div class="form-floating mb-3">
-                  <input type="number" class="form-control" name="ci_doctor" required id="floatingInput" placeholder="name@example.com">
+                  <input type="number" class="form-control" name="ci_doctor" required id="floatingInput" placeholder="Carnet de Identidad">
                   <label for="floatingInput">Carnet de identidad</label>
                 </div>
                 <div class="form-floating mb-3">
@@ -40,8 +40,8 @@ require_once ("./php/Path_constantes.php");
                   <label for="floatingPassword">Direccion</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" name="especialidad" id="floatingPassword" placeholder="Direccion">
-                  <label for="floatingPassword">especialidad</label>
+                  <input type="text" class="form-control" name="especialidad" id="floatingPassword" placeholder="Especialida">
+                  <label for="floatingPassword">Especialidad</label>
                 </div>
 
                 
@@ -55,6 +55,10 @@ require_once ("./php/Path_constantes.php");
       </div>
     </div>
   </div>
- 
+  <script src="../js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
 </body>
 </html>
