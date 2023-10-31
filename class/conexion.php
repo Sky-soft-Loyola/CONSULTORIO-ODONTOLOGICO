@@ -94,7 +94,7 @@ class Conexion{
                          $acompanante,
                          $paciente->getAntecedentes()->getCod_antecedentes());         
                         
-        print_r($arrData) ;              
+        
         try{
             $insert->execute($arrData);
         } catch (Exception $e){
@@ -127,7 +127,6 @@ class Conexion{
     // metodo para insertar el historial a la base de datos
     public function insertar_historial($historial_clinico){
         $historial_clinico->setCod_atencion($this->clave_primaria_historial());
-        $odontologo = $historial_clinico->getOdontologo();
         $paciente = $historial_clinico->getPaciente();
         $sql="INSERT INTO historial_clinico (cod_atencion, fecha, diente, tratamiento, ci_doctor, ci_paciente) VALUES (?, ?, ?, ?, ?, ?);";
         foreach( $historial_clinico->getLista_diente() as $diente){
@@ -137,7 +136,7 @@ class Conexion{
                             $historial_clinico->getFecha(),
                             $diente->getNumero_diente(),
                             $diente->getTratamiento(),
-                            $odontologo->getCi(),
+                            $historial_clinico->getOdontologo(),
                             $paciente->getCi());
                             
         try{
@@ -176,7 +175,34 @@ class Conexion{
             return false;
         }
         
-    }   
+    }
+    
+    public function comprobar_inicio_sesion($ci_doctor=0,$password=""){
+        /**
+         * Devulve un valor booleano, segun a la verificacion realizada en la base de datos con el carnet de identidad del odontologo y su carnte
+         * 
+         * @param int $ci_doctor= 0
+         * @param string $password=0
+         * @return boolean
+         */
+        $sql="SELECT * FROM `odontologo` WHERE `ci_doctor` = %d AND `contraseña` LIKE '%s'" ;
+        $select=sprintf($sql,$ci_doctor,$password);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        $indice=0;
+        while ($doctor=$resultados->fetch()){
+            $datos[$indice]['ci_doctor']=$doctor['ci_doctor'];
+       
+        }
+        if (empty($datos)){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }  
 
     public function comprobar_paciente($ci_paciente=0){
         $sql="SELECT * FROM `paciente` WHERE `ci_paciente` = %d";

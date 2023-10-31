@@ -11,8 +11,8 @@ class Acompanante extends Persona{
     public function __construct($ci,$nombre_completo,$celular,$parentesco,$direccion)
     {
         parent::__construct($ci,$celular,$direccion,);
-        $this->nombre_completo = $nombre_completo;
-        $this->parentesco = $parentesco;
+        $this->nombre_completo = strtoupper($nombre_completo);
+        $this->parentesco = strtoupper($parentesco);
         
     }
 

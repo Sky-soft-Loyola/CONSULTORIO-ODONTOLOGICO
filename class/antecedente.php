@@ -11,11 +11,11 @@ class Antecedentes_medicos{
     public function __construct($cod_antecedentes, $alergias, $medicacion, $patologia, $tratamiento_medico)
     {
         $this->cod_antecedentes = $cod_antecedentes;
-        $this->alergias= $alergias;
-        $this->medicacion= $medicacion;
-        $this->patologia = $patologia;
+        $this->alergias= strtoupper($alergias);
+        $this->medicacion= strtoupper($medicacion);
+        $this->patologia = strtoupper($patologia);
 
-        $this->tratamiento_medico= $tratamiento_medico;
+        $this->tratamiento_medico= strtoupper($tratamiento_medico);
     }
 
 

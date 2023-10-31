@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+require ("../page/php/Path_constantes.php");
 require ("./acompanante.php");
 require ("./paciente.php");
 require ("./odontologo.php");
@@ -7,89 +8,59 @@ require ("./historial.php");
 require ("./antecedente.php");
 require("./diente.php");
 require_once("./conexion.php");
-//print_r ($_POST);
+//print_r ($_SESSION);
 
-//$persona = new Persona($_POST['ci'],$_POST['celular'],$_POST['direccion']);
-//echo ("Esta es la clase personas<br>");
-//$persona->mostrar_variables();
 
-//Creacion de objetos
-$acompanante = new Acompanante($_POST['ci_acompanante'],$_POST['nombre_completo'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
+if (isset($_SESSION['btn_Dato2'])){
+  
+    $acompanante = new Acompanante($_SESSION['ci_acompanante'],$_SESSION['nombre_completo_acompanante'],$_SESSION['celular_acompanante'],$_SESSION['parentesco'],$_SESSION['direccion_acompanante']);
+    $antecedentes_medicos = new Antecedentes_medicos(0,$_SESSION['alergias'],$_SESSION['medicacion'],$_SESSION['patologia'],$_SESSION['tratamiento_medico']);
+    $paciente = new Paciente($antecedentes_medicos,$acompanante,$_SESSION['paciente']['ci_paciente'],$_SESSION['paciente']['nombre'],$_SESSION['paciente']['ap_paterno'],$_SESSION['paciente']['ap_materno'],$_SESSION['paciente']['fecha_nacimiento'],$_SESSION['paciente']['correo'],$_SESSION['paciente']['celular_paciente'],$_SESSION['paciente']['genero'],$_SESSION['paciente']['nacionalidad'],$_SESSION['paciente']['ocupacion'],$_SESSION['paciente']['estado_civil'],$_SESSION['paciente']['direccion_paciente']);
+    $lista_dientes=array();
+    $index=0;
+    foreach($_SESSION['dientes'] as $diente){
 
-$odontologo = new Odontologo($_POST['ci_doctor'],$_POST['contrasena'],$_POST['nombre_completo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
+        $tratamiento=$_SESSION['tratamiento']['Tratamiento'][$index];
+        $dientes= new Dientes();
+        $dientes -> insertar_diente($diente,$tratamiento);
+        array_push($lista_dientes,$dientes);
+        $index++;
+    }
+    $historial_clinico = new Historial_clinico($_SESSION['ci_odontologo'],$paciente,0,date('Y-m-d'),$lista_dientes);
+    $conect->insertar_acompanante($acompanante);
+    $conect->insertar_antecedente($paciente);
+    $conect->insertar_paciente($paciente);
+    $conect->insertar_historial($historial_clinico);
+    $ci=$_SESSION['ci_odontologo'];
+    $login=true;
+    print_r($_SESSION);
+    session_unset();
+    $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['login']=$login;
+    header("Location:".$_SERVER['Index']);
+}
 
-$antecedentes_medicos = new Antecedentes_medicos(0,$_POST['alergias'],$_POST['medicacion'],$_POST['patologia'],$_POST['tratamiento_medico']);
-
-$paciente = new Paciente($antecedentes_medicos,$acompanante,$_POST['ci_paciente'],$_POST['nombre'],$_POST['ap_paterno'],$_POST['ap_materno'],$_POST['fecha_nacimiento'],$_POST['correo'],$_POST['celular_paciente'],$_POST['genero'],$_POST['nacionalidad'],$_POST['ocupacion'],$_POST['estado_civil'],$_POST['direccion_paciente']);
-
-$lista_dientes=array();
-foreach($_POST['dientes'] as $diente){
-    
-    $tratamiento=$_POST['tratamiento_diente'][$diente];
-    $dientes= new Dientes();
-    $dientes -> insertar_diente($diente,$tratamiento);
-    array_push($lista_dientes,$dientes);
+if (isset($_POST['btn_Registrar_Odontologo'])){
+    $odontologo = new Odontologo($_POST['ci_doctor'],$_POST['contrasena'],$_POST['nombre_completo_odontologo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
+    $conect->insertar_odontologo($odontologo);
+    header("Location:".$_SERVER['login']);
 
 }
-$historial_clinico = new Historial_clinico($odontologo,$paciente,0,$_POST['fecha'],$lista_dientes);
 
+if(isset($_POST['btn_Iniciar_Sesion'])){
+    print_r($_POST);
+    if (!$conect->comprobar_inicio_sesion($_POST['ci'],$_POST['password'])){
+        $_SESSION['ci_odontologo']=$_POST['ci'];
+        echo("<hr>".$conect->comprobar_inicio_sesion($_POST['ci'],$_POST['password']));
+        $_SESSION['login']=true;
+        print_r($_SESSION);
+        header("Location:".$_SERVER['Index']);
+        
+    }else{
+        header("Location:".$_SERVER['login']);
+    }
+}
 
-$conect->insertar_acompanante($acompanante);
-$conect->insertar_antecedente($paciente);
-$conect->insertar_odontologo($odontologo);
-$conect->insertar_paciente($paciente);
-$conect->insertar_historial($historial_clinico);
-//$antecedentes_medicos->mostrar_antecedentes();
-
-/*echo ("<hr>Esta es la clase acompañante<br>");
-
-
-//$acompanante->mostrar_acompanante();
-
-
-echo ("<hr>Esta es la clase odontologo<br>");
-$odontologo = new Odontologo($_POST['ci_doctor'],$_POST['contrasena'],$_POST['nombre_completo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
-
-
-echo ("<hr>Esta es la clase antecedentes medicos<br>");
-$antecedentes_medicos = new Antecedentes_medicos($_POST['cod_antecedentes'],$_POST['alergias'],$_POST['medicacion'],$_POST['patologia'],$_POST['tratamiento_medico']);
-//$antecedentes_medicos->mostrar_antecedentes();
-
-
-echo ("<hr>Esta es la clase paciente<br>");
-$paciente = new Paciente($antecedentes_medicos,$acompanante,$_POST['ci_paciente'],$_POST['nombre'],$_POST['ap_paterno'],$_POST['ap_materno'],$_POST['fecha_nacimiento'],$_POST['correo'],$_POST['celular_paciente'],$_POST['genero'],$_POST['nacionalidad'],$_POST['ocupacion'],$_POST['estado_civil'],$_POST['direccion_paciente']);
-
-//$paciente->mostrar_paciente();
-echo ("<hr>");
-
-$conect->insertar_Antecedente($paciente);
-
-
-//echo ("<hr>Esta es la clase historial clinico<br>");
-//$historial_clinico = new Historial_clinico($odontologo,$paciente,$_POST['cod_atencion'],$_POST['fecha'],$_POST['estado_diente'],$_POST['dientes'],$_POST['tratamiento'],$_POST['observacion']);
-echo ("<hr>Esta es la clase historial clinico<br>");
-$historial_clinico = new Historial_clinico($odontologo,$paciente,$_POST['cod_atencion'],$_POST['fecha'],$_POST['estado_diente'],$_POST['dientes'],$_POST['tratamiento']);
-
-$historial_clinico->mostrar_historial();
-*/
-
-//Creacion de los dientes
-echo "<br>";
-
-
-//$historial_clinico->mostrar_historial();
-
-//echo ("<hr>Esta es la clase dientes<br>");
-//$lista_dientes = new Dientes($lista_dientes,$_POST['diente 1'],$_POST['diente 2'],$_POST['diente 3'],$_POST['diente 4'],$_POST['diente 5'],$_POST['diente 6']);
-
-
-
-
-//metodos para enviar a la base de datos
-//$conect->insertar_Odontologo($odontologo);
-//$conect->insertar_Acompanante($acompanante);
-//$conect->insertar_paciente($paciente);
-//$conect->insertar_historial($historial_clinico);
 ?>
 
 

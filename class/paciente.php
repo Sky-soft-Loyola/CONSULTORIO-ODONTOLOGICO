@@ -23,16 +23,16 @@ class Paciente extends Persona{
         parent::__construct($ci,$celular,$direccion);
         $this->acompanante= $acompanante;
         $this->antecedentes= $antecedentes;
-        $this->nombre = $nombre;
-        $this->ap_paterno = $ap_paterno;
-        $this->ap_materno = $ap_materno;
+        $this->nombre = strtoupper($nombre);
+        $this->ap_paterno = strtoupper($ap_paterno);
+        $this->ap_materno = strtoupper($ap_materno);
         $this->fecha_nacimiento = $fecha_nacimiento;
         $this->correo = $correo;
         $this->celular = $celular;
         $this->genero = $genero;
-        $this->nacionalidad = $nacionalidad;
-        $this->ocupacion = $ocupacion;
-        $this->estado_civil = $estado_civil;
+        $this->nacionalidad = strtoupper($nacionalidad);
+        $this->ocupacion = strtoupper($ocupacion);
+        $this->estado_civil = strtoupper($estado_civil);
   
     }
 

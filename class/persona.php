@@ -10,7 +10,7 @@ class Persona{
     {
         $this->ci = $ci;
         $this->celular= $celular;
-        $this->direccion= $direccion;
+        $this->direccion= strtoupper($direccion);
     }
 
     public function mostrar_variables(){
