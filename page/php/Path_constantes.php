@@ -10,5 +10,5 @@
     $_SERVER['session']='/consultorio-odontologico/page/php/session.php';
     $_SERVER['login']='/consultorio-odontologico/page/login.php';
     $_SERVER['singin']='/consultorio-odontologico/page/singin.php';
-
+    $_SERVER['Img']='/consultorio-odontologico/img/'
 ?>
