@@ -346,7 +346,18 @@ class Conexion{
         }
         return $datos;
     }
-    
+    public function obtener_datos_odontologo($ci_doctor) {
+        $sql="SELECT ci_doctor,nombre_completo,especialidad FROM `odontologo` WHERE ci_doctor=%d;";
+        $select=sprintf($sql,$ci_doctor);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        while ($odontologo=$resultados->fetch()){
+            $datos=$odontologo;
+        }
+        return $datos;
+      }
 
 
 

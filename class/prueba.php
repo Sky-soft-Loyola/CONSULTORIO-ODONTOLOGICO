@@ -9,6 +9,10 @@ require ("./antecedente.php");
 require("./diente.php");
 require_once("./conexion.php");
 
+
+
+
+
 $datos=$conect->obtener_datos_paciente(9998877);
 if(!empty($datos['ci_acompanante'])){
     $acompanante=new Acompanante($datos['ci_acompanante'],$datos['nombre_completo'],$datos['celular_acompanante'],$datos['parentesco'],$datos['direccion_acompanante']);
@@ -48,7 +52,10 @@ for ($index=0;$index<count($lista_consultas);$index++){
     }
 }
 
+$odontologo=$conect->obtener_datos_odontologo($lista_consultas[1]['ci_doctor']);
+
 ?>
+
 
 
 <!DOCTYPE html>
@@ -90,7 +97,8 @@ require_once ("../page/php/Path_constantes.php");
             <fieldset>
                 <legend>Consulta <?php echo $llave+1;?></legend>
                 <label for="" class="form form-label m-2">Fecha</label> <input type="date" readonly class="form-control" value="<?php echo $valor['fecha'];?>">
-                <label for="" class="form form-label m-2">Odontologo</label> <input type="number" readonly class="form-control" value="<?php echo $valor['ci_doctor'];?>">
+                <label for="" class="form form-label m-2">Especialidad</label> <input type="text" readonly class="form-control" value="<?php echo $odontologo['especialidad'];?>">
+                <label for="" class="form form-label m-2">nombre completo</label> <input type="text" readonly class="form-control" value="<?php echo $odontologo['nombre_completo'];?>">
             </fieldset>
 
             <?php 
