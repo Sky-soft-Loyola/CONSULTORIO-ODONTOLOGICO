@@ -2,8 +2,8 @@
 include_once("./php/Path_constantes.php");
 // Simulación de datos de usuarios
 $usuarios = array(
-    array('N°' => 1, 'CI' => '1234567','Nombre' => 'Juan','Apellido Paterno' => 'Pérez', 'Apellido Materno' => 'González',  'Correo' => 'juan@gmail.com', 'Celular' => '75457545', 'Direccion' => 'Z.Los Alpes'),
-    array('N°' => 2, 'CI' => '9876543', 'Nombre' => 'María', 'Apellido Paterno' => 'Gómez', 'Apellido Materno' => 'López',  'Correo' => 'Maria@gmail.com', 'Celular' => '75124121', 'Direccion' => 'Z.Miraflores' )
+    array('N°' => 1, 'CI' => '1234567','Nombre' => 'Juan','Apellido Paterno' => 'Pérez', 'Apellido Materno' => 'González',  'Correo' => 'juan@gmail.com', 'Celular' => '75457545'),
+    array('N°' => 2, 'CI' => '9876543', 'Nombre' => 'María', 'Apellido Paterno' => 'Gómez', 'Apellido Materno' => 'López',  'Correo' => 'Maria@gmail.com', 'Celular' => '75124121')
     // ... más usuarios aquí
 );
 
@@ -75,7 +75,6 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                                     <th>APELLIDO MATERNO</th>
                                     <th>CORREO</th>
                                     <th>CELULAR</th>
-                                    <th>DIRECCIÓN</th>
                                     
                                     <th>ACCIÓN</th>
                                 </tr>
@@ -90,7 +89,6 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                                         <td><?php echo $usuario['Apellido Materno']; ?></td>
                                         <td><?php echo $usuario['Correo']; ?></td>
                                         <td><?php echo $usuario['Celular']; ?></td>
-                                        <td><?php echo $usuario['Direccion']; ?></td>
                                         
                                         <td>
                                         <a href="ver.php" class="btn btn-primary" role="button" data-bs-toggle="button">VER</a>
