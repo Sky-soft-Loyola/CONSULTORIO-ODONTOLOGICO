@@ -61,8 +61,66 @@ if(isset($_POST['btn_Iniciar_Sesion'])){
     }
 }
 
+
+$datos=$conect->obtener_lista_pacientes();
+
+/*foreach($datos as $paciente){
+    echo "ci_paciente:".$paciente['ci_paciente']."<br>";
+    echo "nombre:".$paciente['nombre']."<br>";
+    echo "ap_paterno:".$paciente['ap_paterno']."<br>";
+    echo "ap_materno:".$paciente['ap_materno']."<br>";
+    echo "celular:".$paciente['celular']."<br>";
+    echo "correo:".$paciente['correo']."<br>";
+    echo "<hr>";
+}
+echo "<hr>";
+
+
+foreach ($datos as $llave=>$datos){
+    echo $llave."=".$datos."<br>";
+}*/
+
+$datos=$conect->obtener_datos_paciente(77777);
+if(!empty($datos['ci_acompanante'])){
+    $acompanante=new Acompanante($datos['ci_acompanante'],$datos['nombre_completo'],$datos['celular_acompanante'],$datos['parentesco'],$datos['direccion_acompanante']);
+}else{
+    $acompanante=null;
+}
+
+$antecedentes_medicos =new Antecedentes_medicos($datos['cod_antecedente'],$datos['alergias'],$datos['medicacion'],$datos['patologia'],$datos['tratamiento_medico']);
+$paciente = new Paciente($antecedentes_medicos,$acompanante,$datos['ci_paciente'],$datos['nombre'],$datos['ap_paterno'],$datos['ap_materno'],$datos['fecha_nacimiento'],$datos['correo'],$datos['celular'],$datos['genero'],$datos['nacionalidad'],$datos['ocupacion'],$datos['estado_civil'],$datos['direccion']);
+
+
+
+
+$datos=$conect->datos_generales_historial_consultas(77777);
+$lista_consultas=array();
+$indice=0;
+foreach($datos as $consulta){
+    $lista_consultas[$indice]= array(
+        "cod_atencion" => $consulta['cod_atencion'],
+        "ci_doctor" => $consulta['ci_doctor'],
+        "fecha" => $consulta['fecha'],
+        "dientes" => array()
+    );
+    $indice++;
+}
+
+
+$datos=$conect->obtener_historial_consultas_paciente(77777);
+
+for ($index=0;$index<count($lista_consultas);$index++){
+    $indice=0;
+    foreach ($datos as $key => $value) {
+        if($lista_consultas[$index]['cod_atencion']==$value['cod_atencion']){
+            $lista_consultas[$index]['dientes'][$indice]=new Dientes($value['diente'],$value['tratamiento']);
+            $indice++; 
+        }
+    }
+}
+
+
+
 ?>
 
 
-
-<br>

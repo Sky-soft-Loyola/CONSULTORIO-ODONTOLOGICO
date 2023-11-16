@@ -271,6 +271,85 @@ class Conexion{
     }
 
 
+    public function obtener_lista_pacientes(){
+        $sql="SELECT ci_paciente,nombre,ap_paterno,ap_materno,celular,correo  FROM `paciente`";
+        $resultados = $this->conexion->prepare($sql);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        $indice = 0;
+        while ($pacientes=$resultados->fetch()){
+            $datos[$indice]['ci_paciente']=$pacientes['ci_paciente'];
+            $datos[$indice]['nombre']=$pacientes['nombre'];
+            $datos[$indice]['ap_paterno']=$pacientes['ap_paterno'];
+            $datos[$indice]['ap_materno']=$pacientes['ap_materno'];
+            $datos[$indice]['celular']=$pacientes['celular'];
+            $datos[$indice]['correo']=$pacientes['correo'];
+            $indice++;
+        }
+        return $datos;
+    }
+
+    public function obtener_datos_paciente($ci_paciente){
+        $sql=" SELECT * FROM antecedentes_medicos as AM INNER JOIN paciente as P on AM.cod_antecedente=P.cod_antecedente where P.ci_paciente = %d";
+        $select=sprintf($sql,$ci_paciente);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        while ($paciente=$resultados->fetch()){
+            $datos=$paciente;
+        }
+
+        $sql="SELECT A.* from acompanante as A INNER JOIN paciente as P on A.ci_acompanante = P.ci_acompanante WHERE ci_paciente= %d";
+        $select=sprintf($sql,$ci_paciente);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        while ($paciente=$resultados->fetch()){
+           $datos['ci_acompanante']=$paciente['ci_acompanante'];       
+           $datos['nombre_completo']=$paciente['nombre_completo'];
+           $datos['celular_acompanante']=$paciente['celular'];
+           $datos['parentesco']=$paciente['parentesco'];
+           $datos['direccion_acompanante']=$paciente['direccion'];
+        }
+        return $datos;
+    }
+
+    public function obtener_historial_consultas_paciente($ci_paciente){
+        $sql="SELECT * FROM `historial_clinico` WHERE ci_paciente=%d;";
+        $select=sprintf($sql,$ci_paciente);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        $indice = 0;
+        while ($paciente=$resultados->fetch()){
+            $datos[$indice]=$paciente;
+            $indice++;
+        }
+        return $datos;
+    }
+
+
+    public function datos_generales_historial_consultas($ci_paciente){
+        $sql="SELECT `cod_atencion`, `fecha`, `ci_doctor` FROM `historial_clinico` WHERE `ci_paciente`=%d GROUP BY cod_atencion";
+        $select=sprintf($sql,$ci_paciente);
+        $resultados = $this->conexion->prepare($select);
+        $resultados->setFetchMode(PDO::FETCH_ASSOC);
+        $resultados->execute();
+        $datos = array();
+        $indice = 0;
+        while ($paciente=$resultados->fetch()){
+            $datos[$indice]=$paciente;
+            $indice++;
+        }
+        return $datos;
+    }
+    
+
+
+
 
     public function getConexion(){
         return $this->conexion;
