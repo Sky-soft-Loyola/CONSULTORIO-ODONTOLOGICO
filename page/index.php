@@ -37,10 +37,11 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                                 <p>ID Usuario: 12345</p>
                             </div>
                         </li>
+                        <!--
                         <div class="d-grid gap-2">
                              <button class="btn btn-primary" type="button">Cerrar sesion</button>
                              <button class="btn btn-primary" type="button">Lista de usuarios</button>
-                        </div>
+                        </div>-->
                     </ul>
                 </div>
             </nav>
