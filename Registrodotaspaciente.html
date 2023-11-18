@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Editar Acompañante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container mt-5">
+  <h1>Ver</h1>
+  <form action="guardar_edicion.php" method="post">
+    
+    <!-- Fieldset para el Acompañante -->
+    <fieldset>
+      <legend>Datos del Paciente</legend>
+      <label for="Nombre">Nombre:</label>
+      <input type="text" name="Nombre" value="<?php echo $Nombre['Nombre']; ?>" readonly><br>
+
+      <label for="Apellido Paterno">Apellido Paterno:</label>
+      <input type="text" name="Apellido Paterno" value="<?php echo $Apellido Paterno['Apellido Paterno']; ?>"readonly><br>
+
+      <label for="Apellido Materno">Apellido Materno:</label>
+      <input type="text" name="Apellido Materno" value="<?php echo $Apellido Materno['Apellido Materno']; ?>"readonly><br>
+
+      <label for="Fecha De Nacimiento">Fecha De Nacimiento:</label>
+      <input type="text" name="Fecha de Nacimiento" value="<?php echo $Fecha de nacimiento['Fecha de nacimiento']; ?>"readonly><br>
+
+      <label for="Correo">Correo:</label>
+      <input type="text" name="Correo" value="<?php echo $Correo['Correo']; ?>"readonly><br>
+
+      <label for="Celular">Celular:</label>
+      <input type="text" name="Celular" value="<?php echo $Celular['Celular']; ?>"readonly><br>
+
+      <label for="Direccion">Direccion:</label>
+      <input type="text" name="Direccion" value="<?php echo $direccion['direccion']; ?>"readonly><br>
+
+      <label for="Genero">Genero:</label>
+      <input type="text" name="Genero" value="<?php echo $Genero['Genero']; ?>"readonly><br>
+
+      <label for="Nacionalidad">Nacionalidad:</label>
+      <input type="text" name="Nacionalidad" value="<?php echo $Nacionalidad['Nacionalidad']; ?>"readonly><br>
+
+      <label for="Ocupacion">Ocupacion:</label>
+      <input type="text" name="Ocupacion" value="<?php echo $Ocupacion['Ocupacion']; ?>"readonly><br>
+
+      <label for="Estado Civil">Estado Civil:</label>
+      <input type="text" name="Estado Civil" value="<?php echo $Estado Civil['Estado Civil']; ?>"readonly><br>
+
+    </fieldset>
+
+    <br>
+
+    <a class="btn" href="/.html">Nueva Consulta</a>
+
+  </form>
+</div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

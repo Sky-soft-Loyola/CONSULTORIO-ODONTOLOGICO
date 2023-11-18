@@ -69,3 +69,11 @@
 .input-box-2 .checkbox ul li input[type="checkbox"] {
     opacity: 0;
 }
+
+
+
+/*centrear los td*/
+
+td {
+    padding-top: 10px;
+}
