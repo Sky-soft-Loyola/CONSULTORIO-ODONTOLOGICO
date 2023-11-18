@@ -23,15 +23,20 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../page/cssNav/estilos.css">
 </head>
 <body>
+    <?php 
+    include_once ("../page/navegador.php");
+    ?>
+
     <div class="container-fluid">
     <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <div class="text-center mt-3">
+                            <div class="text-center mt-3 estilo-personalizado neg">
                                 <img src="<?php echo $_SERVER['Img'].'logo2.jpeg'?>" alt="Foto de perfil" class="img-fluid rounded-circle">
                                 <h5>ODONTOLOGO</h5>
                                 <p>ID Usuario: 12345</p>
@@ -92,55 +97,12 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                                         <td><?php echo $usuario['Celular']; ?></td>
                                         
                                         <td>
-                                        <a href="ver.php" class="btn btn-primary" role="button" data-bs-toggle="button">VER</a>
-                                        
+                                        <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>                                        
                                         <!-- Boton editar con validación , utilizando bootstrap -->
-                                        
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">EDITAR
-                                        </button>
-
-                                        
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">EDITAR</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                        Esta seguro de editar los datos del paciente
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-warning">Editar</button>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>
+                                        <a href="../page/editarPaciente.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
                                         
                                         </td>
-                                        <!-- Boton eliminar con validación, utilizando bootstrap 
-                                        <td>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">ELIMINAR
-                                        </button>
-
-                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">ELIMINAR</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                        Esta seguro de eliminar paciente
-                                        </div>
-                                        <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-danger">Eliminar</button>
-                                        </div>
-                                        </div>
-                                        </div>
-                                        </div>-->
+                                        
                                     </td>
                                         <td><!-- Acciones aquí --></td>
                                     </tr>
