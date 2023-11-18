@@ -1,0 +1,11 @@
+.fondo-opaco {
+    background-color: rgba(255, 255, 255, 0.7); /* Cambia el último valor (0.7) para ajustar la opacidad */
+    padding: 15px; /* Ajusta el relleno según tus necesidades */
+    border-radius: 10px; /* Añade esquinas redondeadas si lo deseas */
+}
+.estilo-personalizado {
+    color: black;
+}
+.neg {
+    font-weight: bold;
+}
