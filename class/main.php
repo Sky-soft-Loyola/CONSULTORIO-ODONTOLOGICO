@@ -174,4 +174,16 @@ for ($index=0;$index<count($lista_consultas);$index++){
 
 
 <input type="submit" value="123"  name="btn_Actualizar">
+
+
 </form>
+<?php
+
+$odontologo=new Odontologo(6666,"contra4321","nombre",12345678,"el alto","doctor");
+$conect->actualizar_datos_odontologo($odontologo);
+
+$acompanante= new Acompanante(123,"susana",87654321,"HERMANA","villa adela");
+$conect->actualizar_datos_acompanante($acompanante);
+
+
+?>

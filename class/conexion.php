@@ -379,13 +379,46 @@ class Conexion{
         
     }
 
+    public function actualizar_datos_odontologo ($odontologo){
+
+        $sql="UPDATE `odontologo` SET `contraseña` = '%s', `nombre_completo` = '%s', `celular` = '%d', `direccion` = '%s', `especialidad` = '%s' WHERE `odontologo`.`ci_doctor` = %d;";
+
+        $sql=sprintf($sql,$odontologo->getContrasena(),$odontologo->getNombre_completo(),$odontologo->getCelular(),$odontologo->getDireccion(),$odontologo->getEspecialidad(), $odontologo->getCi());
+
+        $actulizar = $this->conexion->prepare($sql);           
+        try{
+            $actulizar->execute();
+        } catch (Exception $e){
+            echo("<br><b>error odontologo</b><hr>".$e."<hr>");
+        }          
+}
+
+
+public function actualizar_datos_acompanante ($acompanante){
+
+    $sql="UPDATE `acompanante` SET `nombre_completo` = '%s', `celular` = '%d', `parentesco` = '%s', `direccion` = '%s' WHERE `acompanante`.`ci_acompanante` = %d;";
+
+    $sql=sprintf($sql,$acompanante->getNombre_completo(),$acompanante->getCelular(),$acompanante->getParentesco(),$acompanante->getDireccion(),$acompanante->getCi());
+
+    $actulizar = $this->conexion->prepare($sql);           
+    try{
+        $actulizar->execute();
+    } catch (Exception $e){
+        echo("<br><b>error acompañante</b><hr>".$e."<hr>");
+    }          
+}
+
 
     public function getConexion(){
         return $this->conexion;
     }
 
 
+
+
+
 }
+
 
 
 
