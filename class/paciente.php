@@ -58,6 +58,17 @@ class Paciente extends Persona{
         
     }
 
+    //Devolver valor si es que hay acompañante
+    public function comprobar_acompanante(){
+       
+        if($this->getAcompanante()==Null){
+            //$this->getAcompanante()->getCi()
+            return 0;
+        }else{
+            return $this->getAcompanante()->getCi();
+        }
+    }
+
 
 //Encapsuladores
 //get

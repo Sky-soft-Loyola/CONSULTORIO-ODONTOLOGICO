@@ -6,13 +6,14 @@ class Dientes{
 
 
 //CONSTRUCTOR
-    public function __construct()
+    public function __construct($diente=0,$tratamiento="")
     {
-        $this->numero_diente;
-        $this->tratamiento;
+        $this->numero_diente=$diente;
+        $this->tratamiento=$tratamiento;
 
   
     }
+   
 
     public function mostrar_diente(){
         echo("<b>Datos del Diente</b><br>");
