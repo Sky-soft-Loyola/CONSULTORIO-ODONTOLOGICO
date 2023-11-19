@@ -359,7 +359,25 @@ class Conexion{
         return $datos;
       }
 
+      // metodo para insertar pacientes a la base de datos
+    
+    
+    
+    public function actualizar_paciente($paciente){
 
+        $sql="UPDATE `paciente` SET `nombre` = '%s', `ap_paterno` = '%s', `ap_materno` = '%s', `correo` = '%s', `celular` = '%s', `direccion` = '%s', `ocupacion` = '%s', `estado_civil` = '%s' WHERE `paciente`.`ci_paciente` = %d;";
+
+        $sql=sprintf($sql,$paciente->getNombre(),$paciente->getAp_paterno(),$paciente->getAp_materno(),$paciente->getCorreo(),$paciente->getCelular(),$paciente->getDireccion(),$paciente->getOcupacion(),$paciente->getEstado_civil(),$paciente->getCi());
+
+        $actulizar = $this->conexion->prepare($sql);           
+        try{
+            $actulizar->execute();
+        } catch (Exception $e){
+            echo("<br><b>error paciente</b><hr>".$e."<hr>");
+        }          
+
+        
+    }
 
 
     public function getConexion(){
