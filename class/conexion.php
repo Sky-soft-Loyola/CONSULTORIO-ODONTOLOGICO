@@ -1,9 +1,9 @@
 <?php
-require_once("paciente.php");
-require_once("antecedente.php");
-require_once("odontologo.php");
-require_once("acompanante.php");
-require_once("historial.php");
+require_once("./paciente.php");
+require_once("./antecedente.php");
+require_once("./odontologo.php");
+require_once("./acompanante.php");
+require_once("./historial.php");
 class Conexion{
     
     //atributos
@@ -272,7 +272,7 @@ class Conexion{
 
 
     public function obtener_lista_pacientes(){
-        $sql="SELECT ci_paciente,nombre,ap_paterno,ap_materno,celular,correo  FROM `paciente`";
+        $sql="SELECT ci_paciente,nombre,ap_paterno,ap_materno,celular,correo FROM `paciente` ORDER BY `paciente`.`ap_paterno` ASC";
         $resultados = $this->conexion->prepare($sql);
         $resultados->setFetchMode(PDO::FETCH_ASSOC);
         $resultados->execute();

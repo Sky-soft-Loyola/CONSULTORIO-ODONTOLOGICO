@@ -1,18 +1,7 @@
 <?php
 include_once("./php/Path_constantes.php");
+
 // Simulación de datos de usuarios
-$usuarios = array(
-    array('N°' => 1, 'CI' => '1234567','Nombre' => 'Juan','Apellido Paterno' => 'Pérez', 'Apellido Materno' => 'González',  'Correo' => 'juan@gmail.com', 'Celular' => '75457545'),
-    array('N°' => 2, 'CI' => '9876543', 'Nombre' => 'María', 'Apellido Paterno' => 'Gómez', 'Apellido Materno' => 'López',  'Correo' => 'Maria@gmail.com', 'Celular' => '75124121')
-    // ... más usuarios aquí
-);
-
-
-
-// Simulación de búsqueda por CI
-$searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
-
-// Filtro de usuarios por CI
 
 ?>
 
@@ -28,6 +17,8 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
 <body>
     <?php 
     include_once ("../page/navegador.php");
+
+
     ?>
 
     <div class="container-fluid">
@@ -38,15 +29,15 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                         <li class="nav-item">
                             <div class="text-center mt-3 estilo-personalizado neg">
                                 <img src="<?php echo $_SERVER['Img'].'logo2.jpeg'?>" alt="Foto de perfil" class="img-fluid rounded-circle">
-                                <h5>ODONTOLOGO</h5>
-                                <p>ID Usuario: 12345</p>
+                                <h5><p>ODONTOLOGO:</p><?php echo $_SESSION['odontologo']['nombre_completo'];?></h5>
+                                <p>CI Usuario: <?php echo $_SESSION['odontologo']['ci_doctor'];?></p>
                             </div>
                         </li>
-                        <!--
+                        
                         <div class="d-grid gap-2">
-                             <button class="btn btn-primary" type="button">Cerrar sesion</button>
-                             <button class="btn btn-primary" type="button">Lista de usuarios</button>
-                        </div>-->
+                             <a class="btn btn-primary" href="./php/session.php?btn_CerrarSesion=true" type="button">Cerrar sesion</a>
+                             <!--<button class="btn btn-primary" type="button">Lista de usuarios</button>-->
+                        </div>
                     </ul>
                 </div>
             </nav>
@@ -56,21 +47,22 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                 
                 <form method="post">
                     <div class="input-group mt-3">
-                        <input type="text" class="form-control" name="search_ci" placeholder="Buscar por CI" aria-label="Buscar por CI" aria-describedby="button-search" value="<?php echo $searchedCI; ?>">
+                        <input type="text" class="form-control" name="search_ci" placeholder="Buscar por CI" aria-label="Buscar por CI" aria-describedby="button-search" value="">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" type="submit" id="button-search">Buscar</button>
                         </div>
                     </div>
                 </form>
                 <div class="mt-3">
-                    <?php if (empty($usuarios)) : ?>
+                    <?php if (empty($_SESSION['lista_pacientes'])) { ?>
+                        
                         <p>No se encontraron resultados</p>
                         
                         <center>
                             <img src="<?php echo $_SERVER['Img'];?>resultados.png" alt="Foto" width="250"><br>
                         <button class="btn btn-primary mt-3" type="button" href="crear_usuario.php">Registrar Usuario</button>
                         </center>
-                    <?php else : ?>
+                    <?php }else { ?>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -86,30 +78,32 @@ $searchedCI = isset($_POST['search_ci']) ? $_POST['search_ci'] : '';
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($usuarios as $llave=>$usuario) { ?>
+                                <?php 
+                                $index=1;
+                                foreach ($_SESSION['lista_pacientes'] as $llave=>$usuario) { ?>
                                     <tr>
-                                        <td><?php echo $usuario['N°']; ?></td>
-                                        <td><?php echo $usuario['CI']; ?></td>
-                                        <td><?php echo $usuario['Nombre']; ?></td>
-                                        <td><?php echo $usuario['Apellido Paterno']; ?></td>
-                                        <td><?php echo $usuario['Apellido Materno']; ?></td>
-                                        <td><?php echo $usuario['Correo']; ?></td>
-                                        <td><?php echo $usuario['Celular']; ?></td>
+                                        <td><?php echo $llave+1; ?></td>
+                                        <td><?php echo $usuario['ci_paciente']; ?></td>
+                                        <td><?php echo $usuario['nombre']; ?></td>
+                                        <td><?php echo $usuario['ap_paterno']; ?></td>
+                                        <td><?php echo $usuario['ap_materno']; ?></td>
+                                        <td><?php echo $usuario['correo']; ?></td>
+                                        <td><?php echo $usuario['celular']; ?></td>
                                         
                                         <td>
                                         <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>                                        
                                         <!-- Boton editar con validación , utilizando bootstrap -->
-                                        <a href="../page/editarPaciente.php" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
+                                        <a href="<?php echo $_SERVER['Main']."?ci=".$usuario['ci_paciente'];?>" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
                                         
                                         </td>
                                         
                                     </td>
                                         <td><!-- Acciones aquí --></td>
                                     </tr>
-                                <?php } ?>
+                                <?php $index++; } ?>
                             </tbody>
                         </table>
-                    <?php endif; ?>
+                    <?php } ?>
                 </div>
                 
             </div>

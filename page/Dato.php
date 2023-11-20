@@ -64,7 +64,7 @@ session_start();
 				<div class="gender-category">
 					<input type="radio" value="M" name="paciente[genero]" id="Masculino">
 					<label for="Masculino">Masculino</label>
-					<input type="radio" value="V" name="paciente[genero]" id="Femenino">
+					<input type="radio" value="F" name="paciente[genero]" id="Femenino">
 					<label for="Femenino">Femenino</label>
 				</div>
 			</div>

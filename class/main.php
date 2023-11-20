@@ -48,12 +48,12 @@ if (isset($_POST['btn_Registrar_Odontologo'])){
 }
 
 if(isset($_POST['btn_Iniciar_Sesion'])){
-    print_r($_POST);
+   
     if (!$conect->comprobar_inicio_sesion($_POST['ci'],$_POST['password'])){
         $_SESSION['ci_odontologo']=$_POST['ci'];
-        echo("<hr>".$conect->comprobar_inicio_sesion($_POST['ci'],$_POST['password']));
         $_SESSION['login']=true;
-        print_r($_SESSION);
+        $_SESSION['odontologo']=$conect->obtener_datos_odontologo($_SESSION['ci_odontologo']);
+        $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
         header("Location:".$_SERVER['Index']);
         
     }else{
@@ -62,22 +62,28 @@ if(isset($_POST['btn_Iniciar_Sesion'])){
 }
 
 if(isset($_POST['btn_Actualizar'])){
-    $acompanante = new Acompanante($_POST['ci_acompanante'],$_POST['nombre_completo_acompanante'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
-    $antecedentes_medicos = new Antecedentes_medicos($_POST['cod_antecedentes'],$_POST['alergias'],$_POST['medicacion'],$_POST['patologia'],$_POST['tratamiento_medico']);
-    $paciente = new Paciente($antecedentes_medicos,$acompanante,$_POST['ci_paciente'],$_POST['nombre'],$_POST['ap_paterno'],$_POST['ap_materno'],$_POST['fecha_nacimiento'],$_POST['correo'],$_POST['celular'],$_POST['genero'],$_POST['nacionalidad'],$_POST['ocupacion'],$_POST['estado'],$_POST['direccion']);
-
     
-    $paciente->setNombre($_POST['nombre']);
-    $paciente->setAp_paterno($_POST['ap_paterno']);
-    $paciente->setAp_materno($_POST['ap_materno']);
-    $paciente->setCorreo($_POST['correo']);
-    $paciente->setCelular($_POST['celular']);
-    $paciente->setDireccion($_POST['direccion']);    
-    $paciente->setNacionalidad($_POST['nacionalidad']);
-    $paciente->setOcupacion($_POST['ocupacion']);
-    $paciente->setEstado_civil($_POST['estado']);
 
+    if($_POST['ci_acompanante'] == 0){
+        $acompanante=null;
+    }else{
+        $acompanante = new Acompanante($_POST['ci_acompanante'],$_POST['nombre_completo'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
+       
+    }
+    
+    $antecedentes_medicos = new Antecedentes_medicos($_POST['cod_antecedente'],$_POST['alergias'],$_POST['medicacion'],$_POST['patologia'],$_POST['tratamiento_medico']);
+    $paciente = new Paciente($antecedentes_medicos,$acompanante,$_POST['ci_paciente'],$_POST['nombre'],$_POST['ap_paterno'],$_POST['ap_materno'],$_POST['fecha_nacimiento'],$_POST['correo'],$_POST['celular_paciente'],$_POST['genero'],$_POST['nacionalidad'],$_POST['ocupacion'],$_POST['estado_civil'],$_POST['direccion_paciente']);
     $conect->actualizar_paciente($paciente);
+    $login=true;
+    $ci=$_SESSION['ci_odontologo'];
+    session_unset();
+    
+    $_SESSION['login']=$login;
+    $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['odontologo']=$conect->obtener_datos_odontologo($ci);
+    $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
+    header("Location:".$_SERVER['Index']);
+   
     
 
 
@@ -85,34 +91,16 @@ if(isset($_POST['btn_Actualizar'])){
 
 
 
-$datos=$conect->obtener_lista_pacientes();
 
-/*foreach($datos as $paciente){
-    echo "ci_paciente:".$paciente['ci_paciente']."<br>";
-    echo "nombre:".$paciente['nombre']."<br>";
-    echo "ap_paterno:".$paciente['ap_paterno']."<br>";
-    echo "ap_materno:".$paciente['ap_materno']."<br>";
-    echo "celular:".$paciente['celular']."<br>";
-    echo "correo:".$paciente['correo']."<br>";
-    echo "<hr>";
+
+//$datos=$conect->obtener_lista_pacientes();
+
+if(isset($_GET['ci'])){
+
+    $datos=$conect->obtener_datos_paciente($_GET['ci']);
+    $_SESSION['datos_paciente']=$datos;
+    header("Location:".$_SERVER['editar_paciente']);
 }
-echo "<hr>";
-
-
-foreach ($datos as $llave=>$datos){
-    echo $llave."=".$datos."<br>";
-}*/
-
-$datos=$conect->obtener_datos_paciente(12300);
-if(!empty($datos['ci_acompanante'])){
-    $acompanante=new Acompanante($datos['ci_acompanante'],$datos['nombre_completo'],$datos['celular_acompanante'],$datos['parentesco'],$datos['direccion_acompanante']);
-}else{
-    $acompanante=null;
-}
-
-$antecedentes_medicos =new Antecedentes_medicos($datos['cod_antecedente'],$datos['alergias'],$datos['medicacion'],$datos['patologia'],$datos['tratamiento_medico']);
-$paciente = new Paciente($antecedentes_medicos,$acompanante,$datos['ci_paciente'],$datos['nombre'],$datos['ap_paterno'],$datos['ap_materno'],$datos['fecha_nacimiento'],$datos['correo'],$datos['celular'],$datos['genero'],$datos['nacionalidad'],$datos['ocupacion'],$datos['estado_civil'],$datos['direccion']);
-
 
 
 
@@ -178,6 +166,8 @@ for ($index=0;$index<count($lista_consultas);$index++){
 
 </form>
 <?php
+
+
 
 $odontologo=new Odontologo(6666,"contra4321","nombre",12345678,"el alto","doctor");
 $conect->actualizar_datos_odontologo($odontologo);

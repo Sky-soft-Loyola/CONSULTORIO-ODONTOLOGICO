@@ -11,13 +11,6 @@
 
 <?php
 
-$acompanante = array(
-    'ci_acompanante' => '654321',
-    'nombre_completo' => 'Ana Pérez',
-    'celular' => '87654321',
-    'parentesco' => 'Amigo',
-    'direccion' => 'Av. Principal'
-);
 ?>
 <?php 
     include_once ("../page/navegador.php");
@@ -42,33 +35,34 @@ $acompanante = array(
                         <div class="mb-10 row">
                           <label for="ci_acompanante" class="col-sm-5 col-form-label neg">CÉDULA DE IDENTIDAD DEL ACOMPAÑANTE:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="ci_acompanante" value="<?php echo $acompanante['ci_acompanante']; ?>" readonly><br>
-                          </div></div>
-
+                          <input type="text" class="form-control" name="ci_acompanante" value="<?php echo $paciente['ci_acompanante']; ?>" readonly><br>
+                          </div>
+                        </div>
+                          <?php if($paciente['ci_acompanante']!=null){?>
                           <div class="mb-10 row">
                           <label for="nombre_acompanante" class="col-sm-5 col-form-label neg">NOMBRE COMPLETO DEL ACOMPAÑANTE:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="nombre_acompanante" value="<?php echo $acompanante['nombre_completo']; ?>"readonly><br>
+                          <input type="text" class="form-control" name="nombre_completo_acompanante" value="<?php echo $paciente['nombre_completo']; ?>"readonly><br>
                           </div></div>
 
                           <div class="mb-10 row">
                           <label for="celular" class="col-sm-5 col-form-label neg">CELULAR:</label>
                           <div class="col-sm-7">
-                          <input type="number" class="form-control" name="celular_acompanante" value="<?php echo $acompanante['celular']; ?>"readonly><br>
+                          <input type="number" class="form-control" name="celular_acompanante" value="<?php echo $paciente['celular']; ?>"readonly><br>
                           </div></div>
 
                           <div class="mb-10 row">
                           <label for="parentesco" class="col-sm-5 col-form-label neg">PARENTESCO:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="parentesco" value="<?php echo $acompanante['parentesco']; ?>"readonly><br>
+                          <input type="text" class="form-control" name="parentesco" value="<?php echo $paciente['parentesco']; ?>"readonly><br>
                           </div></div>
 
                           <div class="mb-10 row">
                           <label for="direccion" class="col-sm-5 col-form-label neg">DIRECCIÓN:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="direccion_acompanante" value="<?php echo $acompanante['direccion']; ?>"readonly><br>
+                          <input type="text" class="form-control" name="direccion_acompanante" value="<?php echo $paciente['direccion']; ?>"readonly><br>
                           </div></div>
-
+                          <?php }?>
                         </fieldset>
                         
                         
@@ -78,7 +72,7 @@ $acompanante = array(
                 </form>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                   <button href="editarAcompanante.php" type="submit" class="btn btn-success mt-12">EDITAR ACOMPAÑANTE</button>
-                  <a href="../page/index.php" class="btn btn-info mt-12" tabindex="-1" role="button" aria-disabled="true">GUARDAR</a>
+                  
                 </div>
                 
                 <hr>

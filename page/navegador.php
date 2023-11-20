@@ -1,3 +1,15 @@
+<?php
+//credenciales de acceso
+$_SESSION['login']=false;
+session_start();
+if(!$_SESSION['login']){
+    header("location:".$_SERVER['login']);
+}
+
+include_once("./php/Path_constantes.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +23,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
   <div class="container-fluid mr-3">
-    <a class="navbar-brand" href="#">CLINICA ODONTOLOGICA</a>
+    <a class="navbar-brand" href="./index.php">CLINICA ODONTOLOGICA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,12 +38,12 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="">CUENTA</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">CERRAR SESIÓN</a></li>
+            <li><a class="dropdown-item" href="./php/session.php?btn_CerrarSesion=true">CERRAR SESIÓN</a></li>
           </ul>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="../page/editarPaciente.php">REGISTRAR PACIENTE</a>
+          <a class="nav-link" href="../page/Dato.php">REGISTRAR PACIENTE</a>
         </li>
       </ul>
       <form class="d-flex">
