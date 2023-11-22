@@ -92,7 +92,7 @@ $odontologo = array(
         <button href="index.php" type="submit" class="btn btn-success mt-12">CANCELAR</button>
         
         <a href="index.php" class="btn btn-info mt-12" onclick="return confirmarEdicion()">GUARDAR</a>
-    
+        
 </div>
 
 <script>
