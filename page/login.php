@@ -1,5 +1,7 @@
 <?php
-require_once("./php/Path_constantes.php")
+require_once("./php/Path_constantes.php");
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html>

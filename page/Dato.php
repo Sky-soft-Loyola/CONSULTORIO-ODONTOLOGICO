@@ -1,5 +1,5 @@
 <?php
-
+include_once("./php/Path_constantes.php");
 session_start();
 ?>
 <!DOCTYPE html>
@@ -7,6 +7,7 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../estilos/Dato.css">
 	<title>Dato</title>
 </head>
@@ -69,6 +70,7 @@ session_start();
 				</div>
 			</div>
 			<div class="button-container">
+				<a href="<?php echo $_SERVER['Index'];?>" class="btn form-control btn-danger">Atras</a>
 				<button type="submit" name="btn_Dato1"><a > Siguiente</a></button>
 				
 			</div>

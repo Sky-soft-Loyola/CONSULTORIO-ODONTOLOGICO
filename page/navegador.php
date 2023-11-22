@@ -2,11 +2,9 @@
 //credenciales de acceso
 $_SESSION['login']=false;
 session_start();
-if(!$_SESSION['login']){
+if(!$_SESSION['login']&& $_SESSION['odontologo']==null){
     header("location:".$_SERVER['login']);
-}
-
-include_once("./php/Path_constantes.php");
+} 
 ?>
 
 
@@ -47,8 +45,8 @@ include_once("./php/Path_constantes.php");
         </li>
       </ul>
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" id="input_busqueda" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" id="btn_buscar"  form="" type="submit">Search</button>
       </form>
     </div>
   </div>

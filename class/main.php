@@ -1,14 +1,16 @@
 <?php
 session_start();
 require ("../page/php/Path_constantes.php");
+/*
 require ("./acompanante.php");
 require ("./paciente.php");
 require ("./odontologo.php");
 require ("./historial.php");
 require ("./antecedente.php");
+*/
 require("./diente.php");
 require_once("./conexion.php");
-//print_r ($_SESSION);
+print_r ($_POST);
 
 
 if (isset($_SESSION['btn_Dato2'])){
@@ -33,11 +35,12 @@ if (isset($_SESSION['btn_Dato2'])){
     $conect->insertar_historial($historial_clinico);
     $ci=$_SESSION['ci_odontologo'];
     $login=true;
-    print_r($_SESSION);
     session_unset();
     $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['odontologo']=$conect->obtener_datos_odontologo($_SESSION['ci_odontologo']);
+        $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
     $_SESSION['login']=$login;
-    header("Location:".$_SERVER['Index']);
+    
 }
 
 if (isset($_POST['btn_Registrar_Odontologo'])){
@@ -83,17 +86,21 @@ if(isset($_POST['btn_Actualizar'])){
     $_SESSION['odontologo']=$conect->obtener_datos_odontologo($ci);
     $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
     header("Location:".$_SERVER['Index']);
-   
-    
-
 
 }
 
+if (isset($_POST ['actualizar_acompanante'])){
+    $acompanante= new Acompanante($_POST['ci_acompanante'],$_POST['nombre_acompanante'],$_POST['celular_acompanante'],$_POST['parentesco'],$_POST['direccion_acompanante']);
+
+    $conect->actualizar_datos_acompanante($acompanante);
+    
+
+}
+header("Location:".$_SERVER['Index']);
 
 
 
-
-//$datos=$conect->obtener_lista_pacientes();
+/*/$datos=$conect->obtener_lista_pacientes();
 
 if(isset($_GET['ci'])){
 
@@ -174,6 +181,6 @@ $conect->actualizar_datos_odontologo($odontologo);
 
 $acompanante= new Acompanante(123,"susana",87654321,"HERMANA","villa adela");
 $conect->actualizar_datos_acompanante($acompanante);
-
+*/
 
 ?>

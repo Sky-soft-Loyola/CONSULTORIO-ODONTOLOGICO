@@ -1,9 +1,11 @@
 <?php
-require_once("./paciente.php");
-require_once("./antecedente.php");
-require_once("./odontologo.php");
-require_once("./acompanante.php");
-require_once("./historial.php");
+require_once("../page/php/Path_constantes.php");
+/*require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['paciente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['antecendente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['odontologo']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['acompanante']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['historial']);
+*/
 class Conexion{
     
     //atributos
@@ -19,7 +21,7 @@ class Conexion{
         try{
             $this->conexion = new pdo($connectionString,$this->user,$this->password);
             $this->conexion->setAttribute(pdo::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "Conexión exitosa <br>";
+            
         }   catch(Exception $e){
           //  $this->conexion="Error de conexión";
             echo "ERROR: ".$e->getMessage();

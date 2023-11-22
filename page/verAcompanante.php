@@ -62,6 +62,7 @@
                           <div class="col-sm-7">
                           <input type="text" class="form-control" name="direccion_acompanante" value="<?php echo $paciente['direccion']; ?>"readonly><br>
                           </div></div>
+                          <button href="editarAcompanante.php" type="submit" class="btn btn-success mt-12">EDITAR ACOMPAÑANTE</button>
                           <?php }?>
                         </fieldset>
                         
@@ -71,7 +72,9 @@
                   </div>
                 </form>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button href="editarAcompanante.php" type="submit" class="btn btn-success mt-12">EDITAR ACOMPAÑANTE</button>
+                            
+                            
+                  
                   
                 </div>
                 

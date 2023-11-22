@@ -1,12 +1,15 @@
 <?php
 include_once("./php/Path_constantes.php");
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['conexion']);
+$lista=$conect->obtener_lista_pacientes();
 
 // Simulación de datos de usuarios
 
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,11 +48,11 @@ include_once("./php/Path_constantes.php");
             <div class="my-3 p-3 bg-white rounded shadow-sm">
                 <h6 class="border-bottom pb-2 mb-0">Lista de Pacientes</h6>
                 
-                <form method="post">
+                <form method="get" name="index_busqueda">
                     <div class="input-group mt-3">
-                        <input type="text" class="form-control" name="search_ci" placeholder="Buscar por CI" aria-label="Buscar por CI" aria-describedby="button-search" value="">
+                        <input type="text" class="form-control" name="search_ci" id="input_busqueda" placeholder="Buscar por CI" aria-label="Buscar por CI" aria-describedby="button-search" value="">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-search">Buscar</button>
+                            <button class="btn btn-outline-secondary" type="submit" name="buscar" id="btn_buscar">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -60,7 +63,7 @@ include_once("./php/Path_constantes.php");
                         
                         <center>
                             <img src="<?php echo $_SERVER['Img'];?>resultados.png" alt="Foto" width="250"><br>
-                        <button class="btn btn-primary mt-3" type="button" href="crear_usuario.php">Registrar Usuario</button>
+                        <a class="btn btn-primary mt-3" type="button" href="<?php echo $_SERVER['Dato']?>">Registrar Usuario</a>
                         </center>
                     <?php }else { ?>
                         <table class="table">
@@ -79,16 +82,16 @@ include_once("./php/Path_constantes.php");
                             </thead>
                             <tbody>
                                 <?php 
-                                $index=1;
-                                foreach ($_SESSION['lista_pacientes'] as $llave=>$usuario) { ?>
+                                
+                                foreach ($lista as $llave=>$usuario) { ?>
                                     <tr>
-                                        <td><?php echo $llave+1; ?></td>
-                                        <td><?php echo $usuario['ci_paciente']; ?></td>
-                                        <td><?php echo $usuario['nombre']; ?></td>
-                                        <td><?php echo $usuario['ap_paterno']; ?></td>
-                                        <td><?php echo $usuario['ap_materno']; ?></td>
-                                        <td><?php echo $usuario['correo']; ?></td>
-                                        <td><?php echo $usuario['celular']; ?></td>
+                                        <td id="numero"><?php echo $llave+1; ?></td>
+                                        <td id="carnet"><?php echo $usuario['ci_paciente']; ?></td>
+                                        <td id="nombre"><?php echo $usuario['nombre']; ?></td>
+                                        <td id="apellido_paterno"><?php echo $usuario['ap_paterno']; ?></td>
+                                        <td id="apellido_materno"><?php echo $usuario['ap_materno']; ?></td>
+                                        <td id="correo"><?php echo $usuario['correo']; ?></td>
+                                        <td id="celular"><?php echo $usuario['celular']; ?></td>
                                         
                                         <td>
                                         <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>                                        
@@ -100,7 +103,7 @@ include_once("./php/Path_constantes.php");
                                     </td>
                                         <td><!-- Acciones aquí --></td>
                                     </tr>
-                                <?php $index++; } ?>
+                                <?php  } ?>
                             </tbody>
                         </table>
                     <?php } ?>
@@ -115,3 +118,14 @@ include_once("./php/Path_constantes.php");
     <script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
+<script>
+    var lista = <?php echo json_encode($lista)?>
+    const formulario = document.querySelector('#input_busqueda');
+    const button = document.querySelector('#btn_buscar');
+
+    const filtrar= () =>{
+        console.log(formulario.value);
+    }
+
+    boton.addEventListner('click',filtrar)
+</script>
