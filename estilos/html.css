@@ -1,0 +1,79 @@
+.Contenedor {
+    display: flex;
+}
+
+.txt-1 {
+    margin: 0px 100px;
+}
+
+.txt-2 {
+    margin: 0px 1000px;
+}
+
+.input-box-2 input {
+    height: 30px;
+    background: transparent;
+    font-size: 6.5px;
+    margin: 10px 0 20px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(15, 14, 14, 0.2);
+    border-radius: 100px;
+}
+
+.Contenido {
+    display: flex;
+}
+
+.txt-3 {
+    margin: 0px 100px;
+}
+
+.txt-4 {
+    margin: 0px 1000px;
+}
+
+.input-box-2 .checkbox {
+    width: 100%;
+}
+
+.input-box-2 .checkbox ul {
+    list-style: none;
+}
+
+.input-box-2 .checkbox ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.input-box-2 .checkbox ul li label {
+    display: inline-block;
+    background: #2b3241;
+    border: 1px solid #b1b2cf;
+    color: #b1b2cf;
+    border-radius: 25px;
+    transition: .2s all ease;
+    padding: 8px 12px;
+}
+
+.input-box-2 .checkbox ul li label:hover {
+    border: 1px solid #686ffd;
+}
+
+.input-box-2 .checkbox ul li input[type="checkbox"]:checked + label {
+    border: 1px solid #686ffd;
+    background: #686ffd;
+    color:#fff;
+}
+
+.input-box-2 .checkbox ul li input[type="checkbox"] {
+    opacity: 0;
+}
+
+
+
+/*centrear los td*/
+
+td {
+    padding-top: 10px;
+}
