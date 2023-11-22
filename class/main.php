@@ -100,7 +100,7 @@ header("Location:".$_SERVER['Index']);
 
 
 
-/*/$datos=$conect->obtener_lista_pacientes();
+/*/$datos=$conect->obtener_lista_pacientes();*/
 
 if(isset($_GET['ci'])){
 
@@ -110,7 +110,7 @@ if(isset($_GET['ci'])){
 }
 
 
-
+/*
 $datos=$conect->datos_generales_historial_consultas(77777);
 $lista_consultas=array();
 $indice=0;
