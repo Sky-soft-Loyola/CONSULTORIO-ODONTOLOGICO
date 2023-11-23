@@ -18,11 +18,7 @@ require ("./php/Path_constantes.php");
 <?php 
     include_once ("../page/navegador.php");
     ?>
-<?php
 
-$paciente=$_SESSION['datos_paciente'];
-
-?>
 <section class="content">
     <div class="container mt-5">
     <div class="fondo-opaco">
