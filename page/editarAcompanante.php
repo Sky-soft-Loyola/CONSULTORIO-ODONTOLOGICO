@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,10 +10,17 @@
 <body>
 
 <?php
-$acompanante=$_POST;
 
-include_once("./php/Path_constantes.php");
-include_once ("../page/navegador.php");
+$acompanante = array(
+    'ci_acompanante' => '654321',
+    'nombre_completo' => 'Ana Pérez',
+    'celular' => '87654321',
+    'parentesco' => 'Amigo',
+    'direccion' => 'Av. Principal'
+);
+?>
+<?php 
+    include_once ("../page/navegador.php");
     ?>
 <section class="content">
     <div class="container mt-5">
@@ -25,7 +31,7 @@ include_once ("../page/navegador.php");
                 <div class="card bg-primary text-center text-light">
                     <h2>DATOS DEL ACOMPAÑANTE</h2>
                 </div>
-                <form action="<?php echo $_SERVER['Main'];?>" method="post">
+                <form action="editarAcompanante.php" method="post">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-12">
@@ -42,13 +48,13 @@ include_once ("../page/navegador.php");
                           <div class="mb-10 row">
                           <label for="nombre_acompanante" class="col-sm-5 col-form-label estilo-personalizado neg">NOMBRE COMPLETO DEL ACOMPAÑANTE:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="nombre_acompanante" value="<?php echo $acompanante['nombre_completo_acompanante']; ?>"><br>
+                          <input type="text" class="form-control" name="nombre_acompanante" value="<?php echo $acompanante['nombre_completo']; ?>"><br>
                           </div></div>
 
                           <div class="mb-10 row">
                           <label for="celular" class="col-sm-5 col-form-label estilo-personalizado neg">CELULAR:</label>
                           <div class="col-sm-7">
-                          <input type="number" class="form-control" name="celular_acompanante" value="<?php echo $acompanante['celular_acompanante']; ?>"><br>
+                          <input type="number" class="form-control" name="celular_acompanante" value="<?php echo $acompanante['celular']; ?>"><br>
                           </div></div>
 
                           <div class="mb-10 row">
@@ -60,7 +66,7 @@ include_once ("../page/navegador.php");
                           <div class="mb-10 row">
                           <label for="direccion" class="col-sm-5 col-form-label estilo-personalizado neg">DIRECCIÓN:</label>
                           <div class="col-sm-7">
-                          <input type="text" class="form-control" name="direccion_acompanante" value="<?php echo $acompanante['direccion_acompanante']; ?>"><br>
+                          <input type="text" class="form-control" name="direccion_acompanante" value="<?php echo $acompanante['direccion']; ?>"><br>
                           </div></div>
 
                         </fieldset>
@@ -69,14 +75,11 @@ include_once ("../page/navegador.php");
                       </div>
                     </div>
                   </div>
-
-                  
-                
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <input type="submit" class="btn btn-info mt-12" value="GUARDAR" name="actualizar_acompanante">
-                  <a href="../page/index.php" class="btn btn-danger mt-12" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>
-                </div>
                 </form>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <a href="../page/index.php" class="btn btn-info mt-12" tabindex="-1" role="button" aria-disabled="true">GUARDAR</a>
+                </div>
+                
                 <hr>
                 </div>
             </div>

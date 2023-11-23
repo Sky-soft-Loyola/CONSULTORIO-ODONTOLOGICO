@@ -1,0 +1,104 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+body{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-image: url(https://img.freepik.com/foto-gratis/concepto-cirugia-implantes-dentales-herramienta-pluma-creada-trazado-recorte-incluido-jpeg-facil-componer_460848-10711.jpg?size=626&ext=jpg&ga=GA1.1.502213791.1697831688&semt=sph);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+.container{
+	max-width: 900px;
+	padding: 5px;
+	margin: 0 28px;
+	border-radius: 5px;
+	overflow: hidden;
+	background: rgba(0,0,0,0.6);
+}
+h2{
+	padding: 10px;
+	font-size: 26px;
+	font-weight: bold;
+	color: #40F8FF;
+	text-align: center;
+	padding-bottom: 8px;
+	border-bottom: 1px solid silver;
+}
+.contenedor{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 10px 0;
+}
+.input-box{
+	display: flex;
+	flex-wrap: wrap;
+	width: 50%;
+	padding-bottom: 10px;
+}
+.input-box:nth-child(2n) {
+	justify-content: end;
+}
+.input-box label, .gender-title{
+	width: 80%;
+	color: #40F8FF;
+	font-weight: bold;
+	margin: 5px 0;
+	text-align: left;
+}
+.gender-title{
+	font-size: 16px;
+}
+.input-box input{
+	height: 30px;
+	width: 95%;
+	padding: 0 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	outline: none;
+}
+.input-box input:is(:focus,:valid){
+	box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+.gender-category label{
+	color: #40F8FF;
+	padding: 0 20px 0 5px;
+	font-size: 16px;
+}
+.gender-category{
+	color: gainsboro;
+}
+.gender-category label, .gender-category input{
+	cursor: pointer;
+}
+.button-container{
+	margin: 15px;
+}
+.button-container button{
+	width: 100%;
+	margin-top: 5px;
+	padding: 5px;
+	display: block;
+	font-size: 20px;
+	border: none;
+	border-radius: 5px;
+	background-image: linear-gradient(to right, #40F8FF,#0C356A);
+	cursor: pointer;
+	transition: 0.3s;
+}
+.button-container button a{
+	text-align: center;
+	color: #40F8FF;
+	text-decoration: none;
+}
+.button-container button:hover{
+	background-image: linear-gradient(to right, #0C356A,#40F8FF);
+}
