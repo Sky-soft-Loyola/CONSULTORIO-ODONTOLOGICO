@@ -130,8 +130,28 @@ $paciente=$_SESSION['datos_paciente'];
 <input type="hidden" value="<?php echo $paciente['direccion_acompanante'];?> " name="direccion_acompanante">
 
 
-                                        <input type="submit" value="Guardar" class="btn btn-info mt-12 text-light" name="btn_Actualizar">
+                                        <!--<input type="submit" value="Guardar" class="btn btn-info mt-12 text-light" name="btn_Actualizar"> -->
                                       </fieldset>
+<div class="container mt-3">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <a href="index.php" class="btn btn-success mt-12 text-light" >CANCELAR</a>   
+    <a href="index.php" class="btn btn-info mt-12 text-light" name="btn_Actualizar" onclick="return confirmarEdicion()">GUARDAR</a>
+        
+</div>
+<script>
+    function confirmarEdicion() {
+        // Utiliza la función confirm() de JavaScript
+        var confirmacion = confirm('¿Está seguro de editar estos datos?');
+
+        // Si el usuario hace clic en "Aceptar", la acción se realizará
+        if (confirmacion) {
+            window.location.href = "../test/page/index.php";
+        }
+
+        // Devuelve false para evitar que el enlace se siga automáticamente
+        return false;
+    }
+</script>
                                     </div>
                                     <hr>
                                   </div>

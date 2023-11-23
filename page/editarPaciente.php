@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editar Paciente</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../page/cssNav/estilos.css">
+  <link rel="stylesheet" href="../test/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../test/page/cssNav/estilos.css">
 </head>
 <body>
 <?php 
-    include_once ("../page/navegador.php");
+    include_once ("../test/page/navegador.php");
     ?>
 <?php
 $paciente = array(
@@ -35,7 +35,7 @@ $paciente = array(
             <div class="col-md-2"></div>
             <div class="col-md-7">
                 <div class="card bg-primary text-center text-light">
-                    <h2>DATOS DEL PACIENTE</h2>
+                    <h2>EDITAR DATOS DEL PACIENTE</h2>
                 </div>
                 <form action="index.php" method="post">
                   <div class="card-body">
@@ -142,6 +142,6 @@ $paciente = array(
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../test/js/bootstrap.min.js"></script>
 </body>
 </html>

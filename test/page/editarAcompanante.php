@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Editar Acompañante</title>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../page/cssNav/estilos.css">
+  <link rel="stylesheet" href="../test/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../test/page/cssNav/estilos.css">
 </head>
 <body>
 
@@ -14,7 +14,7 @@
 $acompanante=$_POST;
 
 include_once("./php/Path_constantes.php");
-include_once ("../page/navegador.php");
+include_once ("../test/page/navegador.php");
     ?>
 <section class="content">
     <div class="container mt-5">
@@ -23,7 +23,7 @@ include_once ("../page/navegador.php");
             <div class="col-md-2"></div>
             <div class="col-md-7">
                 <div class="card bg-primary text-center text-light">
-                    <h2>DATOS DEL ACOMPAÑANTE</h2>
+                    <h2>EDITAR DATOS DEL ACOMPAÑANTE</h2>
                 </div>
                 <form action="<?php echo $_SERVER['Main'];?>" method="post">
                   <div class="card-body">
@@ -73,9 +73,23 @@ include_once ("../page/navegador.php");
                   
                 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <input type="submit" class="btn btn-info mt-12" value="GUARDAR" name="actualizar_acompanante">
                   <a href="../page/index.php" class="btn btn-danger mt-12" tabindex="-1" role="button" aria-disabled="true">Cancelar</a>
+                  <a href="index.php" class="btn btn-info mt-12 text-light" name="actualizar_acompanante" onclick="return confirmarEdicion()">GUARDAR</a>
                 </div>
+<script>
+    function confirmarEdicion() {
+        // Utiliza la función confirm() de JavaScript
+        var confirmacion = confirm('¿Está seguro de editar estos datos?');
+
+        // Si el usuario hace clic en "Aceptar", la acción se realizará
+        if (confirmacion) {
+            window.location.href = "../test/page/index.php";
+        }
+
+        // Devuelve false para evitar que el enlace se siga automáticamente
+        return false;
+    }
+</script>
                 </form>
                 <hr>
                 </div>
@@ -90,7 +104,7 @@ include_once ("../page/navegador.php");
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../test/js/bootstrap.min.js"></script>
 
 </body>
 </html>
