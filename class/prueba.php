@@ -10,7 +10,7 @@ require("./diente.php");
 require_once("./conexion.php");
 
 
-
+$colores=array();
 
 
 $datos=$conect->obtener_datos_paciente(9998877);
@@ -100,6 +100,7 @@ require_once ("../page/php/Path_constantes.php");
                 <label for="" class="form form-label m-2">Especialidad</label> <input type="text" readonly class="form-control" value="<?php echo $odontologo['especialidad'];?>">
                 <label for="" class="form form-label m-2">nombre completo</label> <input type="text" readonly class="form-control" value="<?php echo $odontologo['nombre_completo'];?>">
             </fieldset>
+            
 
             <?php 
             $j=0;
@@ -107,7 +108,9 @@ require_once ("../page/php/Path_constantes.php");
                 
                 if($indice==$valor['dientes'][$j]->getNumero_diente()){ 
                     ?>                
-                    <div class="col"><input type="checkbox" checked title="<?php echo $valor['dientes'][$j]->getTratamiento();?>" disabled id=""><?php echo $indice;?></div>  
+                    <div class="col">
+                        <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip"><label class="btn btn-dark w-100" for="option1" title="<?php echo $valor['dientes'][$j]->getTratamiento();?>"><?php echo $indice;?></label></span>
+                    </div>
                 <?php 
                 if($j+1<count($valor['dientes'])){
                     $j++;     
@@ -115,7 +118,9 @@ require_once ("../page/php/Path_constantes.php");
                 
                 }else{
 
-                ?>   <div class="col"><input type="checkbox"  title="" disabled id=""><?php echo $indice;?></div>  
+                ?>   <div class="col">
+                <span class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" title="Disabled tooltip"><label class="btn btn-light w-100" for="option1" title=""><?php echo $indice;?></label></span>
+            </div>
                 
                 <?php 
                 
