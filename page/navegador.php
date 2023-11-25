@@ -25,16 +25,15 @@ if(!$_SESSION['login']&& $_SESSION['odontologo']==null){
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
            ODONTOLOGO
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="">CUENTA</a></li>
+            <li><a class="dropdown-item" href="<?php echo $_SERVER['Main'];?>?btn_verOdontologo=">CUENTA</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./php/session.php?btn_CerrarSesion=true">CERRAR SESIÓN</a></li>
           </ul>
@@ -48,8 +47,4 @@ if(!$_SESSION['login']&& $_SESSION['odontologo']==null){
     </div>
   </div>
 </nav>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-</body>
-</html>
+   

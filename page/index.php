@@ -53,7 +53,7 @@ $lista=$conect->obtener_lista_pacientes();
                         
                         
                             <div class="input-group mt-3">
-                                <input type="text" id="buscar" onkeyup="buscar()" placeholder="Buscar en tabla" title="Empieza a escribir para buscar">
+                                <input type="text" id="buscar" class="form form-control" onkeyup="buscar()" placeholder="Buscar en tabla" title="Empieza a escribir para buscar">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit" onclick="buscar()" name="buscar" id="btn_buscar">Buscar</button>
                                 </div>

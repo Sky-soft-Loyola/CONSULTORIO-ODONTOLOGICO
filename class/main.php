@@ -102,7 +102,7 @@ if (isset($_POST ['actualizar_acompanante'])){
     
 
 }
-header("Location:".$_SERVER['Index']);
+
 
 
 
@@ -115,6 +115,11 @@ if(isset($_GET['ci'])){
     header("Location:".$_SERVER['editar_paciente']);
 }
 
+if (isset($_GET['btn_verOdontologo'])){
+    $datos= $conect ->obtener_todos_datos_odontologo($_SESSION['ci_odontologo']);
+    $_SESSION['odonto']=$datos;
+    header("location:".$_SERVER['ver_odonto']) ;
+}
 
 /*
 $datos=$conect->datos_generales_historial_consultas(77777);
@@ -188,5 +193,5 @@ $conect->actualizar_datos_odontologo($odontologo);
 $acompanante= new Acompanante(123,"susana",87654321,"HERMANA","villa adela");
 $conect->actualizar_datos_acompanante($acompanante);
 */
-
+//header("Location:".$_SERVER['Index']);
 ?>

@@ -11,6 +11,8 @@
     $_SERVER['login']='/consultorio-odontologico/page/login.php';
     $_SERVER['singin']='/consultorio-odontologico/page/singin.php';    
     $_SERVER['editar_paciente']='/consultorio-odontologico/page/editarPaciente.php';  
+    $_SERVER['editar_odonto']='/consultorio-odontologico/page/editarOdontologo.php';  
+    $_SERVER['ver_odonto']='/consultorio-odontologico/page/verOdontologo.php';  
     //carpetas
     $_SERVER['Img']='/consultorio-odontologico/img/';
     //clases
