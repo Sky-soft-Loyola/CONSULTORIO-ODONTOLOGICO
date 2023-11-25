@@ -13,10 +13,15 @@ $lista=$conect->obtener_lista_pacientes();
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../page/cssNav/estilos.css">
+ <!--se coloca el estilo al boton ver para que sea despregable--> 
+
+
 </head>
 <body>
     <?php 
@@ -100,21 +105,86 @@ $lista=$conect->obtener_lista_pacientes();
                                                 <td>
                                                <!-- SE ESTA QUITANDO ESTE BOTON PARA COLOCAR UN BOTON CON VENTADA DESPREGABLE
                                                 <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>        -->
-                                                <!-- SE COLOCO ESTE BOTON PARA LA VENTADA DESPREGABLE PERO AUN NO SE IMPLEMENTO EL DISEÑO -->
                                                 <button id="btnMostrarCalendario">VER</button>
-
-                                                <!-- Boton editar con validación , utilizando bootstrap -->
+                                               
+                                            <!-- Boton editar con validación , utilizando bootstrap -->
                                                 <a href="<?php echo $_SERVER['Main']."?ci=".$usuario['ci_paciente'];?>" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
-                                                
                                                 </td>
-                                                
                                             </td>
+                                           
                                                 <td><!-- Acciones aquí --></td>
                                             </tr>
                                         <?php  } ?>
                                     </tbody>
                                 </table>
-                                    
+                                    <!-- SE COLOCO ESTE BOTON PARA LA VENTADA DESPREGABLE PERO AUN NO SE IMPLEMENTO EL DISEÑO -->
+                                               
+
+
+<div id="calendarioContainer">
+  <div id="calendario" class="calendario"></div>
+  <button id="btnCerrarCalendario" class="cerrar-btn">Cerrar Calendario</button>
+  <!-- Agrega un párrafo con el texto deseado dentro del contenedor -->
+  <p>¡Bienvenido al Calendario Semanal con Horas y Receso!</p>
+</div>
+
+<script>
+  var calendar;
+
+  $('#btnMostrarCalendario').on('click', function() {
+    $('#calendarioContainer').fadeIn();
+    inicializarCalendario();
+  });
+
+  $('#btnCerrarCalendario').on('click', function() {
+    $('#calendarioContainer').fadeOut();
+    // Destruye el calendario para liberar recursos
+   
+  });
+
+  function inicializarCalendario() {
+ 
+
+   
+  }
+</script>
+
+
+<style>
+  
+  
+/* Estilos para el contenedor del calendario */
+  #calendarioContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 13px;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.234);
+    display: none;
+    z-index: 1000;
+    border-color: #12808a;
+    border-top-right-radius: 5px;
+  }
+  
+  /* Estilos al pasar el ratón sobre el botón de cerrar */
+
+  .cerrar-btn {
+    background-color: #12808a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+   /* Estilos al pasar el ratón sobre el botón de cerrar */
+  .cerrar-btn:hover {
+    background-color:#219fa5;
+    color:#fff;
+    cursor: pointer;
+  }
                                 </div>
                                 
                             <?php } ?>
@@ -124,12 +194,17 @@ $lista=$conect->obtener_lista_pacientes();
                 </main>
               </div> 
     </div>
-    
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/buscador.js"></script>
+
+</style>
+
+
 </body>
 </html>
 
 
-<script src="../js/buscador.js"></script>
