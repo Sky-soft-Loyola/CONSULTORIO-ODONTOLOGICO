@@ -1,13 +1,11 @@
 <?php
 session_start();
 require ("../page/php/Path_constantes.php");
-/*
 require ("./acompanante.php");
 require ("./paciente.php");
 require ("./odontologo.php");
 require ("./historial.php");
 require ("./antecedente.php");
-*/
 require("./diente.php");
 require_once("./conexion.php");
 print_r ($_POST);
@@ -45,7 +43,15 @@ if (isset($_SESSION['btn_Dato2'])){
 
 if (isset($_POST['btn_Registrar_Odontologo'])){
     $odontologo = new Odontologo($_POST['ci_doctor'],$_POST['contrasena'],$_POST['nombre_completo_odontologo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
-    $conect->insertar_odontologo($odontologo);
+    if ($conect->insertar_odontologo($odontologo)){
+        echo '<script>window.alert("Clinica");
+        alert("Odontologo registrado");
+        <script>';
+    }else{
+        echo '<script>window.alert("Clinica");
+        alert("No se puedo registrar al odontologo ");
+        <script>';
+    }
     header("Location:".$_SERVER['login']);
 
 }

@@ -1,4 +1,5 @@
 <?php
+
 include_once("./php/Path_constantes.php");
 require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['conexion']);
 $lista=$conect->obtener_lista_pacientes();

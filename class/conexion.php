@@ -123,7 +123,13 @@ class Conexion{
             $insert->execute($arrData);
         } catch (Exception $e){
             echo("Error odontologo");
-        }  }       
+        }  
+        return true;
+        }else{
+            return false;
+        }
+               
+
     }
 
     // metodo para insertar el historial a la base de datos
