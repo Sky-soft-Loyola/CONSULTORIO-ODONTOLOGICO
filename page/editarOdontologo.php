@@ -8,20 +8,11 @@
   <link rel="stylesheet" href="../page/cssNav/estilos.css">
 </head>
 <body>
-
-<?php
-
-$odontologo = array(
-    'ci_doctor' => '654321',
-    'contrasena' => '12345',
-    'nombre_completo' => 'leonardo Fabio choque ulloa',
-    'celular' => '87654321',
-    'direccion' => 'Av. Principal',
-    'especialidad' => 'Ortodoncista',
-);
-?>
 <?php 
+    include_once ("./php/Path_constantes.php");
     include_once ("../page/navegador.php");
+    $odontologo=$_SESSION['odonto'];
+  
     ?>
 <section class="content">
     <div class="container mt-5">
@@ -32,7 +23,7 @@ $odontologo = array(
                 <div class="card bg-primary text-center text-light">
                     <h2>EDITAR DATOS DEL ODONTOLOGO</h2>
                 </div>
-                <form action="index.php" method="post">
+                <form action="<?php echo $_SERVER['Main'];?>" method="post">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-12">
@@ -48,12 +39,7 @@ $odontologo = array(
                           <input type="text" readonly class="form-control-plaintext neg" name="ci_doctor" value="<?php echo $odontologo['ci_doctor']; ?>" readonly>
                           <br></div></div>
 
-                          <div class="mb-10 row">
-                          <label for="contrasena" class="col-sm-5 col-form-label estilo-personalizado neg">CONTRASEÑA:</label>
-                          <div class="col-sm-7">
-                          <input type="text" class="form-control" name="contrasena" value="<?php echo $odontologo['contrasena']; ?>"><br>
-                          </div></div>
-
+                          
                           <div class="mb-10 row">
                           <label for="nombre_completo" class="col-sm-5 col-form-label estilo-personalizado neg">NOMBRE COMPLETO DEL DOCTOR:</label>
                           <div class="col-sm-7">
@@ -63,7 +49,7 @@ $odontologo = array(
                           <div class="mb-10 row">
                           <label for="celular" class="col-sm-5 col-form-label estilo-personalizado neg">CELULAR:</label>
                           <div class="col-sm-7">
-                          <input type="number" class="form-control" name="celular_odontologo" value="<?php echo $odontologo['celular']; ?>"><br>
+                          <input type="number" class="form-control" name="celular_odontologo" min="60000000" max="79999999" required autofocus value="<?php echo $odontologo['celular']; ?>"><br>
                           </div></div>
 
 
@@ -81,17 +67,18 @@ $odontologo = array(
                           </div></div>
 
                         </fieldset>
+                        <div class="container mt-3">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="index.php" class="btn btn-info mt-12" >CANCELAR</a>
+                            <input type="submit" class="btn btn-success mt-12" name="editar_odonto" onclick="return confirmarEdicion()">
 
+                            
 
                       </div>
                     </div>
                   </div>
                 </form>
-                <div class="container mt-3">
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button href="index.php" type="submit" class="btn btn-success mt-12">CANCELAR</button>
-
-        <a href="index.php" class="btn btn-info mt-12" onclick="return confirmarEdicion()">GUARDAR</a>
+             
 
 </div>
 
@@ -102,7 +89,7 @@ $odontologo = array(
 
         // Si el usuario hace clic en "Aceptar", la acción se realizará
         if (confirmacion) {
-            window.location.href = "../page/index.php";
+            window.location.href = "<?php $_SERVER['Main'];?>?btn_editar_odonto=";
         }
 
         // Devuelve false para evitar que el enlace se siga automáticamente

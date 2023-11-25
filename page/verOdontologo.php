@@ -9,8 +9,9 @@
 </head>
 <body>
 <?php 
+    include_once("./php/Path_constantes.php");
     include_once ("../page/navegador.php");
-    print_r($_SESSION['odonto']);
+ 
     $odontologo=$_SESSION['odonto'];
     
     ?>
@@ -77,10 +78,12 @@
                       </div>
                     </div>
                   </div>
-                </form>
-                <div class="container mt-3">
+                  <div class="container mt-3">
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button href="index.php" type="submit" class="btn btn-success mt-12">CANCELAR</button>
+        <a href="<?php echo $_SERVER['editar_odonto'];?>" class="btn btn-warning mt-12">EDITAR</a>
+        <a href="index.php" type="submit" class="btn btn-danger mt-12">CANCELAR</a>
+                </form>
+                
 
 </div>
 

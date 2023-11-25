@@ -2,7 +2,7 @@
 require_once ("./php/Path_constantes.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,6 +46,7 @@ require_once ("./php/Path_constantes.php");
 
                 
               </div>
+              <a href="<?php echo $_SERVER['login'];?>" class=" btn btn-danger">ATRAS</a>
               <input type="submit" class="btn btn-success" name="btn_Registrar_Odontologo">
           </div>
         </form>  

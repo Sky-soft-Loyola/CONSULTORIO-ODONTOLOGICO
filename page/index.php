@@ -19,6 +19,7 @@ $lista=$conect->obtener_lista_pacientes();
     <title>Dashboard</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../page/cssNav/estilos.css">
+    <link rel="stylesheet" href="./cssNav/ventana_float.css">
  <!--se coloca el estilo al boton ver para que sea despregable--> 
 
 
@@ -149,42 +150,6 @@ $lista=$conect->obtener_lista_pacientes();
   }
 </script>
 
-
-<style>
-  
-  
-/* Estilos para el contenedor del calendario */
-  #calendarioContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 13px;
-    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.234);
-    display: none;
-    z-index: 1000;
-    border-color: #12808a;
-    border-top-right-radius: 5px;
-  }
-  
-  /* Estilos al pasar el ratón sobre el botón de cerrar */
-
-  .cerrar-btn {
-    background-color: #12808a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-   /* Estilos al pasar el ratón sobre el botón de cerrar */
-  .cerrar-btn:hover {
-    background-color:#219fa5;
-    color:#fff;
-    cursor: pointer;
-  }
                                 </div>
                                 
                             <?php } ?>

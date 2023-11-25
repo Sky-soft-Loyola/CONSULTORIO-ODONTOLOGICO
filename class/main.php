@@ -103,7 +103,18 @@ if (isset($_POST ['actualizar_acompanante'])){
 
 }
 
-
+if (isset($_POST['editar_odonto'])){
+    $odontologo=new Odontologo($_POST['ci_doctor'],$_SESSION['odonto']['contraseña'],$_POST['nombre_completo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
+    $conect->actualizar_datos_odontologo($odontologo);
+    /*$login=true;
+    $ci=$_SESSION['ci_odontologo'];
+    session_unset();
+    $_SESSION['login']=$login;
+    $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['odontologo']=$conect->obtener_datos_odontologo($ci);
+    $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
+    header("Location:".$_SERVER['Index']);*/
+}
 
 
 /*/$datos=$conect->obtener_lista_pacientes();*/
