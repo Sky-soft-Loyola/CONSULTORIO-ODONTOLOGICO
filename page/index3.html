@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Semanal con Horas y Receso</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.js"></script>
+</head>
+<body>
+
+  <button id="btnMostrarCalendario">VER</button>
+
+  <div id="calendarioContainer">
+    <div id="calendario" class="calendario"></div>
+    <button id="btnCerrarCalendario" class="cerrar-btn">Cerrar Calendario</button>
+    <!-- Agrega un párrafo con el texto deseado dentro del contenedor -->
+    <p>¡Bienvenido al Calendario Semanal con Horas y Receso!</p>
+  </div>
+
+  <script>
+    var calendar;
+
+    $('#btnMostrarCalendario').on('click', function() {
+      $('#calendarioContainer').fadeIn();
+      inicializarCalendario();
+    });
+
+    $('#btnCerrarCalendario').on('click', function() {
+      $('#calendarioContainer').fadeOut();
+      // Destruye el calendario para liberar recursos
+     
+    });
+
+    function inicializarCalendario() {
+   
+
+     
+    }
+  </script>
+  
+ 
+  <style>
+    
+    
+  
+    #calendarioContainer {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 13px;
+      box-shadow: 0 30px 30px rgba(0, 0, 0, 0.234);
+      display: none;
+      z-index: 1000;
+      border-color: #12808a;
+      border-top-right-radius: 5px;
+    }
+
+    .cerrar-btn {
+      background-color: #12808a;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .cerrar-btn:hover {
+      background-color:#219fa5;
+      color:#fff;
+      
+      cursor: pointer;
+    }
+
+
+    .fc-prev-button, .fc-next-button {
+      color: #fefefe !important;
+      background:#12808a;
+      border-color:#fefefe ;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .fc-prev-button:hover, .fc-next-button:hover {
+      color: #12808a !important;
+      background:#fbfbfc;
+      border-color: #12808a;
+    }
+    .fc-today-button {
+      color: #fefefe !important;
+      background:#12808a;
+      border-color:#fefefe ;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
+    }
+
+
+    .fc-today-button:hover {
+      color: #12808a !important;
+      background:#fbfbfc;
+      border-color: #12808a;
+    }
+    .fc-agendaWeek-button {
+      color: #fefefe !important;
+      background:#12808a;
+      border-color:#fefefe ;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .fc-agendaWeek-button:hover {
+      color: #12808a !important;
+      background:#fbfbfc;
+      border-color: #12808a;
+    }
+
+    .fc-agendaDay-button {
+      color: #fefefe !important;
+      background:#12808a;
+      border-color:#fefefe ;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     
+    }
+
+    .fc-agendaDay-button:hover {
+      color: #12808a !important;
+      background:#fbfbfc;
+      border-color: #12808a;
+    }
+
+    .fc-past-day {
+      background-color: #eee !important;
+      color: #999 !important;
+      cursor: pointer;
+    }
+    
+  </style>
+
+</body>
+</html>

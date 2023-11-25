@@ -98,7 +98,11 @@ $lista=$conect->obtener_lista_pacientes();
                                                 <td id="celular"><?php echo $usuario['celular']; ?></td>
                                                 
                                                 <td>
-                                                <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>                                        
+                                               <!-- SE ESTA QUITANDO ESTE BOTON PARA COLOCAR UN BOTON CON VENTADA DESPREGABLE
+                                                <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>        -->
+                                                <!-- SE COLOCO ESTE BOTON PARA LA VENTADA DESPREGABLE PERO AUN NO SE IMPLEMENTO EL DISEÑO -->
+                                                <button id="btnMostrarCalendario">VER</button>
+
                                                 <!-- Boton editar con validación , utilizando bootstrap -->
                                                 <a href="<?php echo $_SERVER['Main']."?ci=".$usuario['ci_paciente'];?>" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
                                                 
