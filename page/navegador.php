@@ -44,10 +44,7 @@ if(!$_SESSION['login']&& $_SESSION['odontologo']==null){
           <a class="nav-link" href="../page/Dato.php">REGISTRAR PACIENTE</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" id="input_busqueda" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" id="btn_buscar"  form="" type="submit">Search</button>
-      </form>
+    
     </div>
   </div>
 </nav>
