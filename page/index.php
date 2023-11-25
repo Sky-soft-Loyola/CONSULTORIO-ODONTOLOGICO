@@ -201,7 +201,7 @@ $lista=$conect->obtener_lista_pacientes();
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/buscador.js"></script>
 
-</style>
+
 
 
 </body>
