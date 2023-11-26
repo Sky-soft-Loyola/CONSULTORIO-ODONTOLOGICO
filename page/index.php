@@ -1,5 +1,5 @@
 <?php
-
+require ("./php/Path_constantes.php");
 include_once("./php/Path_constantes.php");
 require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['conexion']);
 $lista=$conect->obtener_lista_pacientes();
@@ -7,28 +7,25 @@ $lista=$conect->obtener_lista_pacientes();
 // Simulación de datos de usuarios
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
     <title>Dashboard</title>
+    
+
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../page/cssNav/estilos.css">
- <!--se coloca el estilo al boton ver para que sea despregable--> 
-
-
+  
 </head>
 <body>
     <?php 
     include_once ("../page/navegador.php");
-
-
+   
     ?>
+  
 
     <div class="container-fluid">
         <div class="row">
@@ -45,7 +42,7 @@ $lista=$conect->obtener_lista_pacientes();
                             </li>
                             
                             <div class="d-grid gap-2">
-                                <a class="btn btn-primary" href="./php/session.php?btn_CerrarSesion=true" type="button">Cerrar sesion</a>
+                                <a class="btn btn-primary" href="./php/session.php?btn_CerrarSesion=true" type="button">Cerrar sesión</a>
                                 <!--<button class="btn btn-primary" type="button">Lista de usuarios</button>-->
                             </div>
                         </ul>
@@ -79,7 +76,7 @@ $lista=$conect->obtener_lista_pacientes();
                                     <thead>
                                         <tr>
                                             <th >N°</th>
-                                            <th>CI</th>
+                                            <th>CARNET</th>
                                             <th>NOMBRE</th>
                                             <th>APELLIDO PATERNO</th>
                                             <th>APELLIDO MATERNO</th>
@@ -91,9 +88,10 @@ $lista=$conect->obtener_lista_pacientes();
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        
+ 
                                         foreach ($lista as $llave=>$usuario) { ?>
                                             <tr>
+                                                <!-- incrementa  la llave es el indice de la tabla  si me dice que hay que cambiar el nombre de cada uno pongo echo $llave+1; ?>-->
                                                 <th scope=row id="numero"><?php echo $llave+1; ?></th>
                                                 <td id="carnet"><?php echo $usuario['ci_paciente']; ?></td>
                                                 <td id="nombre"><?php echo $usuario['nombre']; ?></td>
@@ -103,108 +101,47 @@ $lista=$conect->obtener_lista_pacientes();
                                                 <td id="celular"><?php echo $usuario['celular']; ?></td>
                                                 
                                                 <td>
-                                               <!-- SE ESTA QUITANDO ESTE BOTON PARA COLOCAR UN BOTON CON VENTADA DESPREGABLE
-                                                <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>        -->
-                                                <button id="btnMostrarCalendario">VER</button>
                                                
-                                            <!-- Boton editar con validación , utilizando bootstrap -->
-                                                <a href="<?php echo $_SERVER['Main']."?ci=".$usuario['ci_paciente'];?>" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
+                                                <a href="<?php echo $_SERVER['Main']."?cualquiera=".$usuario['ci_paciente'];?>" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>     
+  
+                                                <!-- Boton editar con validación , utilizando bootstrap -->
+                                                <td> <a href="<?php echo $_SERVER['Main']."?ci=".$usuario['ci_paciente'];?>" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">EDITAR</a>
+                                                
                                                 </td>
-                                            </td>
-                                           
-                                                <td><!-- Acciones aquí --></td>
-                                            </tr>
-                                        <?php  } ?>
+        
+        </td>
+            <td><!-- Acciones aquí --></td>
+        </tr>
+    <?php  } ?>
+
+                                             
                                     </tbody>
                                 </table>
-                                    <!-- SE COLOCO ESTE BOTON PARA LA VENTADA DESPREGABLE PERO AUN NO SE IMPLEMENTO EL DISEÑO -->
-                                               
-
-
-<div id="calendarioContainer">
-  <div id="calendario" class="calendario"></div>
-  <button id="btnCerrarCalendario" class="cerrar-btn">Cerrar Calendario</button>
-  <!-- Agrega un párrafo con el texto deseado dentro del contenedor -->
-  <p>¡Bienvenido al Calendario Semanal con Horas y Receso!</p>
-</div>
-
-<script>
-  var calendar;
-
-  $('#btnMostrarCalendario').on('click', function() {
-    $('#calendarioContainer').fadeIn();
-    inicializarCalendario();
-  });
-
-  $('#btnCerrarCalendario').on('click', function() {
-    $('#calendarioContainer').fadeOut();
-    // Destruye el calendario para liberar recursos
-   
-  });
-
-  function inicializarCalendario() {
- 
-
-   
-  }
-</script>
-
-
-<style>
-  
-  
-/* Estilos para el contenedor del calendario */
-  #calendarioContainer {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 13px;
-    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.234);
-    display: none;
-    z-index: 1000;
-    border-color: #12808a;
-    border-top-right-radius: 5px;
-  }
-  
-  /* Estilos al pasar el ratón sobre el botón de cerrar */
-
-  .cerrar-btn {
-    background-color: #12808a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-   /* Estilos al pasar el ratón sobre el botón de cerrar */
-  .cerrar-btn:hover {
-    background-color:#219fa5;
-    color:#fff;
-    cursor: pointer;
-  }
+                                    
                                 </div>
                                 
                             <?php } ?>
                         </div>
-                        
+                
+  
+ 
+
+
+
+ 
                     </div>
                 </main>
               </div> 
     </div>
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/buscador.js"></script>
-
-
-
-
+    
+   
+   
 </body>
 </html>
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="../js/buscador.js"></script>
 

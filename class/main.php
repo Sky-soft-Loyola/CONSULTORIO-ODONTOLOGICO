@@ -108,12 +108,19 @@ if (isset($_POST ['actualizar_acompanante'])){
 
 /*/$datos=$conect->obtener_lista_pacientes();*/
 
+if(isset($_GET['cualquiera'])){
+
+    $datos=$conect->obtener_datos_paciente($_GET['cualquiera']);
+    $_SESSION['datos_paciente']=$datos;
+    header("Location:".$_SERVER['ver_paciente']);
+}
 if(isset($_GET['ci'])){
 
     $datos=$conect->obtener_datos_paciente($_GET['ci']);
     $_SESSION['datos_paciente']=$datos;
     header("Location:".$_SERVER['editar_paciente']);
 }
+
 
 if (isset($_GET['btn_verOdontologo'])){
     $datos= $conect ->obtener_todos_datos_odontologo($_SESSION['ci_odontologo']);

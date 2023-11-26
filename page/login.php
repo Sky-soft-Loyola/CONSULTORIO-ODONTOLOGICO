@@ -132,7 +132,7 @@ session_start();
 <body>
 	<div class="wrapper">
 		<form action="<?php echo $_SERVER['Main'];?>" method="post">
-			<h1>Inicio de Sesion</h1>
+			<h1>Inicio de Sesión</h1>
 			<div class="input-box">
 				<input type="text" name="ci" placeholder="Usuario" required>
 				<i class='bx bxs-user'></i>
@@ -141,14 +141,14 @@ session_start();
 				<input type="password" name="password" placeholder="Contraseña" id="password" checked>
 				<i class='bx bx-hide' id="eyeicon"></i>
 			</div>
-			<button type="submit" class="btn1" name="btn_Iniciar_Sesion"> Iniciar sesion</button>	
+			<button type="submit" class="btn1" name="btn_Iniciar_Sesion"> Iniciar sesión</button>	
 
 			<div class="text">
 				<h5>¿Olvidaste tu contraseña?</h5>
 			</div>
 
 			<div class="btn2">
-				<a href="<?php echo $_SERVER['singin'];?>" class="bt">Crea una cuenta nueva</a>
+				<a href="<?php echo $_SERVER['singin'];?>" class="bt">Crear cuenta nueva</a>
 			</div>
 		</form>
 	</div>

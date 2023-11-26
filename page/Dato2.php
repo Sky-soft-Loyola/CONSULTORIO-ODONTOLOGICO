@@ -55,14 +55,14 @@
 
 						<div class="col16">
 							<input type="checkbox" name="patologias[]" id="Hipertension">
-							<label for="Hipertension">Hipertension&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>	
+							<label for="Hipertension">Hipertensión&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>	
 						</div>
 					</div>
 					<div class="contenedor">
 						<div class="col17">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="checkbox" name="patologias[]" id="Diabetes Mel.">
-							<label for="Diabetes Mel.">Diabetes Mel.</label>	
+							<label for="Diabetes Mel.">Diabetes </label>	
 						</div>
 
 						<div class="col18">
@@ -84,7 +84,7 @@
 						<div class="col21">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="radio" name="gender" id="Medicacion">
-							<label for="Medicacion">Medicacion</label>	
+							<label for="Medicacion">Medicación</label>	
 						</div>
 						<div class="input-box1">
 							<input type="radio" name="gender" id="Otros">
@@ -128,11 +128,11 @@
 								<input type="number" placeholder="Celular" name="Celular" required>
 							</div>
 							<div class="input-box">
-								<label for="Direccion">Direccion&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="Direccion">Dirección&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 								<input type="text" placeholder="Direccion" name="Direcccion" required>
 							</div>
 							<div class="input-box">
-								<label for="Parentezco">Parentezco&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<label for="Parentezco">Parentesco&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 								<input type="text" placeholder="Parentezco" name="Parentezco" required>
 							</div>
 							<div class="bot">

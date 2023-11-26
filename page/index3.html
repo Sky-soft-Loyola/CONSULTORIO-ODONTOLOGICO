@@ -1,85 +1,115 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendario Semanal con Horas y Receso</title>
- 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
-
- 
- 
-</head>
-<body>
-
-  <button id="btnMostrarCalendario">VER</button>
-
-  <div id="calendarioContainer">
-    <div id="calendario" class="calendario"></div>
-    <button id="btnCerrarCalendario" class="cerrar-btn">Cerrar Calendario</button>
-    <!-- Agrega un párrafo con el texto deseado dentro del contenedor -->
-    <p>¡Bienvenido al Calendario Semanal con Horas y Receso!</p>
-  </div>
-
-  <script>
-    var calendar;
-
-    $('#btnMostrarCalendario').on('click', function() {
-      $('#calendarioContainer').fadeIn();
-      inicializarCalendario();
-    });
-
-    $('#btnCerrarCalendario').on('click', function() {
-      $('#calendarioContainer').fadeOut();
-      // Destruye el calendario para liberar recursos
-     
-    });
-
-    function inicializarCalendario() {
-   
-
-     
-    }
-  </script>
   
- 
-  <style>
-    
-    
-  /* Estilos para el contenedor del calendario */
-    #calendarioContainer {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 13px;
-      box-shadow: 0 30px 30px rgba(0, 0, 0, 0.234);
-      display: none;
-      z-index: 1000;
-      border-color: #12808a;
-      border-top-right-radius: 5px;
-    }
-    
-    /* Estilos al pasar el ratón sobre el botón de cerrar */
+    <link rel="stylesheet" href="../page/cssNav/estilosventana.css">
 
-    .cerrar-btn {
-      background-color: #12808a;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-     /* Estilos al pasar el ratón sobre el botón de cerrar */
-    .cerrar-btn:hover {
-      background-color:#219fa5;
-      color:#fff;
-      cursor: pointer;
-    }
-  </style>
 
-</body>
-</html>
+<td>
+  <!-- SE ESTA QUITANDO ESTE BOTON PARA COLOCAR UN BOTON CON VENTADA DESPREGABLE
+   <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">VER</a>        -->
+   <!-- SE COLOCO ESTE BOTON PARA LA VENTADA DESPREGABLE PERO AUN NO SE IMPLEMENTO EL DISEÑO -->
+   
+   <a href="#"  tabindex="-1" role="button" aria-disabled="true"  class="btn btn-outline-info" id="btnMostrarCalendario">VER</a>
+
+   
+<div id="calendarioContainer" class="sin-contenedor overflow-auto" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 600px; width: 100%; padding: 15px; border-radius: 8px;">
+<div id="calendario" class="calendario  ">
+<form amethod="post" enctype="multipart/form-data">
+
+<div class="mb-3">
+<label for="ci_paciente" class="col-sm-6 col-form-label neg">CARNET DE IDENTIDAD:</label>
+<div class="col-sm-3">
+<input type="text" class="form-control-plaintext neg" name="ci_paciente" value="<?php echo $paciente['ci_paciente']; ?>" readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="nombre" class="col-sm-5 col-form-label neg">NOMBRE:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="nombre" value="<?php echo $paciente['nombre']; ?>"  readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="ap_paterno" class="col-sm-5 col-form-label neg">APELLIDO PATERNO:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="ap_paterno" value="<?php echo $paciente['ap_paterno']; ?>" readonly>
+<br></div>
+</div>
+
+
+
+
+<div class="mb-3">
+<label for="ap_materno"class="col-sm-5 col-form-label neg">APELLIDO MATERNO:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="ap_materno" value="<?php echo $paciente['ap_materno']; ?>" readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="correo" class="col-sm-5 col-form-label neg">CORREO:</label>
+<div class="col-sm-7">
+<input type="email" class="form-control-plaintext neg" name="correo" value="<?php echo $paciente['correo']; ?>" readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="celular" class="col-sm-5 col-form-label neg">CELULAR:</label>
+<div class="col-sm-7">
+<input type="number" class="form-control-plaintext neg" name="celular_paciente" value="<?php echo $paciente['celular']; ?>" readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="direccion" class="col-sm-5 col-form-label neg">DIRECCIÓN:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="direccion_paciente" value="<?php echo $paciente['direccion']; ?>" readonly>
+<br></div>
+</div>
+
+<div class="mb-3">
+<label for="genero" class="col-sm-5 col-form-label neg">GENERO:</label>
+<div class="form-check col-sm-7">
+<input type="radio" class="form-check-control" disabled name="" value="M" <?php echo ($paciente['genero'] == 'M') ? 'checked' : ''; ?>>
+<label class="col-sm-5 col-form-check-label" for="flexRadioDefault1">MASCULINO</label><br>
+
+<input type="radio" class="form-check-control" disabled name="" value="F" <?php echo ($paciente['genero'] == 'F') ? 'checked' : ''; ?>>
+<label class="col-sm-5 col-form-check-label" for="flexRadioDefault1">FEMENINO</label>
+</div><br>
+</div>
+
+<div class="mb-3">
+<label for="nacionalidad" class="col-sm-5 col-form-label neg">NACIONALIDAD:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="nacionalidad" value="<?php echo $paciente['nacionalidad']; ?>" readonly>
+<br></div>
+</div>  
+<div class="mb-3">
+<label for="ocupacion" class="col-sm-5 col-form-label neg">OCUPACIÓN:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="ocupacion" value="<?php echo $paciente['ocupacion']; ?>" readonly>
+<br></div>
+</div>  
+<div class="mb-3">
+<label for="estado_civil" class="col-sm-5 col-form-label neg">ESTADO CIVIL:</label>
+<div class="col-sm-7">
+<input type="text" class="form-control-plaintext neg" name="estado_civil" value="<?php echo $paciente['estado_civil']; ?>"  readonly>
+<br></div>
+</div> 
+<div class="mb-3">
+<input type="text" name="cod_antecedente" value="<?php echo $paciente['cod_antecedente'];?>">
+</div>  
+<div class="mb-3">
+<strong>Tipo de Pago:</strong>
+<img src="imagen_qr.png" alt="" srcset="">
+</div>
+
+</form>
+
+
+</div>
+<p></p>
+<button id="btnCerrarCalendario" class="cerrar-btn">Cerrar Calendario</button>
+<!-- Agrega un párrafo con el texto deseado dentro del contenedor -->
+
+</div>
+</td>
