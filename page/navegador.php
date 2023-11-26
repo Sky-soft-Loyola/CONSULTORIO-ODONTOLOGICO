@@ -2,7 +2,7 @@
 //credenciales de acceso
 $_SESSION['login']=false;
 session_start();
-if(!$_SESSION['login']&& $_SESSION['odontologo']==null){
+if(!$_SESSION['login'] && $_SESSION['odontologo']==null){
     header("location:".$_SERVER['login']);
 } 
 ?>
