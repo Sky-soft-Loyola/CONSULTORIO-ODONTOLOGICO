@@ -325,7 +325,7 @@ class Conexion{
     }
 
     public function obtener_historial_consultas_paciente($ci_paciente){
-        $sql="SELECT * FROM `historial_clinico` WHERE ci_paciente=%d;";
+        $sql="SELECT * FROM `historial_clinico` WHERE ci_paciente=%d ; ";
         $select=sprintf($sql,$ci_paciente);
         $resultados = $this->conexion->prepare($select);
         $resultados->setFetchMode(PDO::FETCH_ASSOC);

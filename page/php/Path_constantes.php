@@ -3,7 +3,7 @@
     //page
     $_SERVER['Dato']='/consultorio-odontologico/page/Dato.php';
     $_SERVER['Dato2']='/consultorio-odontologico/page/new_Dato2.php';
-    $_SERVER['Dientes']='/consultorio-odontologico/page/dientes.php';
+    $_SERVER['diente']='/consultorio-odontologico/class/diente.php';
     $_SERVER['Habilitacion_Dientes']='/consultorio-odontologico/page/habilitacion_dientes.php';
     $_SERVER['Index']='/consultorio-odontologico/page/index.php';
     $_SERVER['path_cons']='/consultorio-odontologico/page/php/Path_constantes.php';
@@ -21,7 +21,7 @@
     $_SERVER['conexion']='/consultorio-odontologico/class/conexion.php';
     $_SERVER['acompanante']='/consultorio-odontologico/class/acompanante.php';
     $_SERVER['antecedente']='/consultorio-odontologico/class/antecedente.php';
-    $_SERVER['diente']='/consultorio-odontologico/class/diente.php';
+    $_SERVER['Dientes']='/consultorio-odontologico/page/dientes.php';
     $_SERVER['historial']='/consultorio-odontologico/class/historial.php';
     $_SERVER['odontologo']='/consultorio-odontologico/class/odontologo.php';
     $_SERVER['paciente']='/consultorio-odontologico/class/paciente.php';

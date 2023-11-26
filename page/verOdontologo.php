@@ -43,8 +43,9 @@
                           <div class="mb-10 row">
                           <label for="contrasena" class="col-sm-5 col-form-label estilo-personalizado neg">CONTRASEÑA:</label>
                           <div class="col-sm-7">
-                          <input type="password" readonly class="form-control" name="contrasena" value="<?php echo $odontologo['contraseña']; ?>"><br>
-                          </div></div>
+                          <input type="password" readonly class="form-control" name="contrasena" value="<?php echo $odontologo['contraseña']; ?>">
+                          <a href="./cambiar_contrasena.php" class="btn btn-info mt-3 mb-4">Cambiar</a>
+                          </div> </div>
 
                           <div class="mb-10 row">
                           <label for="nombre_completo" class="col-sm-5 col-form-label estilo-personalizado neg">NOMBRE COMPLETO DEL DOCTOR:</label>

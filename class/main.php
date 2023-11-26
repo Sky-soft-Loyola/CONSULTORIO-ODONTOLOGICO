@@ -1,14 +1,13 @@
 <?php
 session_start();
 require ("../page/php/Path_constantes.php");
-require ("./acompanante.php");
-require ("./paciente.php");
-require ("./odontologo.php");
-require ("./historial.php");
-require ("./antecedente.php");
-require("./diente.php");
-require_once("./conexion.php");
-print_r ($_POST);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['paciente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['antecedente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['odontologo']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['acompanante']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['historial']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['diente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['conexion']);
 
 
 if (isset($_SESSION['btn_Dato2'])){
@@ -36,9 +35,41 @@ if (isset($_SESSION['btn_Dato2'])){
     session_unset();
     $_SESSION['ci_odontologo']=$ci;
     $_SESSION['odontologo']=$conect->obtener_datos_odontologo($_SESSION['ci_odontologo']);
-        $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
+    $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
     $_SESSION['login']=$login;
+    header("Location:".$_SERVER['Index']);
     
+}
+
+if(isset($_SESSION['p_consulta']["btn_nueva_consulta"])){
+    if(!empty($_SESSION['p_consulta']['ci_acompanante'])){
+        $acompanante=new Acompanante($_SESSION['p_consulta']['ci_acompanante'],$_SESSION['p_consulta']['nombre_completo'],$_SESSION['p_consulta']['celular_acompanante'],$_SESSION['p_consulta']['parentesco'],$_SESSION['p_consulta']['direccion_acompanante']);
+    }else{
+        $acompanante=null;
+    }
+    
+    $antecedentes_medicos =new Antecedentes_medicos($_SESSION['p_consulta']['cod_antecedente'],$_SESSION['p_consulta']['alergias'],$_SESSION['p_consulta']['medicacion'],$_SESSION['p_consulta']['patologia'],$_SESSION['p_consulta']['tratamiento_medico']);
+    $paciente = new Paciente($antecedentes_medicos,$acompanante,$_SESSION['p_consulta']['ci_paciente'],$_SESSION['p_consulta']['nombre'],$_SESSION['p_consulta']['ap_paterno'],$_SESSION['p_consulta']['ap_materno'],$_SESSION['p_consulta']['fecha_nacimiento'],$_SESSION['p_consulta']['correo'],$_SESSION['p_consulta']['celular'],$_SESSION['p_consulta']['genero'],$_SESSION['p_consulta']['nacionalidad'],$_SESSION['p_consulta']['ocupacion'],$_SESSION['p_consulta']['estado_civil'],$_SESSION['p_consulta']['direccion']);
+    $lista_dientes=array();
+    $index=0;
+    foreach($_SESSION['dientes'] as $diente){
+
+        $tratamiento=$_SESSION['tratamiento']['Tratamiento'][$index];
+        $dientes= new Dientes();
+        $dientes -> insertar_diente($diente,$tratamiento);
+        array_push($lista_dientes,$dientes);
+        $index++;
+    }
+    $historial_clinico = new Historial_clinico($_SESSION['ci_odontologo'],$paciente,0,date('Y-m-d'),$lista_dientes);
+    $conect->insertar_historial($historial_clinico);
+    $ci=$_SESSION['ci_odontologo'];
+    $login=true;
+    session_unset();
+    $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['odontologo']=$conect->obtener_datos_odontologo($_SESSION['ci_odontologo']);
+    $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
+    $_SESSION['login']=$login;
+    header("Location:".$_SERVER['Index']);
 }
 
 if (isset($_POST['btn_Registrar_Odontologo'])){
@@ -103,17 +134,17 @@ if (isset($_POST ['actualizar_acompanante'])){
 
 }
 
-if (isset($_POST['editar_odonto'])){
+if (isset($_POST['btn_editar_odonto'])){
     $odontologo=new Odontologo($_POST['ci_doctor'],$_SESSION['odonto']['contraseña'],$_POST['nombre_completo'],$_POST['celular_odontologo'],$_POST['direccion_odontologo'],$_POST['especialidad']);
     $conect->actualizar_datos_odontologo($odontologo);
-    /*$login=true;
+    $login=true;
     $ci=$_SESSION['ci_odontologo'];
     session_unset();
     $_SESSION['login']=$login;
     $_SESSION['ci_odontologo']=$ci;
     $_SESSION['odontologo']=$conect->obtener_datos_odontologo($ci);
     $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
-    header("Location:".$_SERVER['Index']);*/
+    header("Location:".$_SERVER['Index']);
 }
 
 
@@ -137,6 +168,20 @@ if (isset($_GET['btn_verOdontologo'])){
     $datos= $conect ->obtener_todos_datos_odontologo($_SESSION['ci_odontologo']);
     $_SESSION['odonto']=$datos;
     header("location:".$_SERVER['ver_odonto']) ;
+}
+if(isset($_POST['btn_editarcontra'])){
+    $odontologo=new Odontologo($_SESSION['odonto']['ci_doctor'],$_POST['nueva_contra'],$_SESSION['odonto']['nombre_completo'],$_SESSION['odonto']['celular'],$_SESSION['odonto']['direccion'],$_SESSION['odonto']['especialidad']);
+    $conect->actualizar_datos_odontologo($odontologo);
+    $login=true;
+    $ci=$_SESSION['ci_odontologo'];
+    session_unset();
+    $_SESSION['login']=$login;
+    $_SESSION['ci_odontologo']=$ci;
+    $_SESSION['odontologo']=$conect->obtener_datos_odontologo($ci);
+    $_SESSION['lista_pacientes']=$conect->obtener_lista_pacientes();
+    echo ("<script>alert('Guardado Correctamente');<script>");
+    header("Location:".$_SERVER['Index']);
+
 }
 
 /*

@@ -1,13 +1,13 @@
 <?php
 session_start();
 require ("../page/php/Path_constantes.php");
-require ("./acompanante.php");
-require ("./paciente.php");
-require ("./odontologo.php");
-require ("./historial.php");
-require ("./antecedente.php");
-require("./diente.php");
-require_once("./conexion.php");
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['paciente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['antecedente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['odontologo']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['acompanante']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['historial']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['diente']);
+require_once($_SERVER['DOCUMENT_ROOT'].$_SERVER['conexion']);
 
 
 

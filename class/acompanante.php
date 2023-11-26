@@ -1,6 +1,5 @@
 <?php
-require_once ("./persona.php");
-
+require_once ($_SERVER['DOCUMENT_ROOT']."/consultorio-odontologico/class/persona.php");
 class Acompanante extends Persona{
 
     //atributos

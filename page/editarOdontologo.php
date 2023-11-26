@@ -70,7 +70,7 @@
                         <div class="container mt-3">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="index.php" class="btn btn-info mt-12" >CANCELAR</a>
-                            <input type="submit" class="btn btn-success mt-12" name="editar_odonto" onclick="return confirmarEdicion()">
+                            <input type="submit" class="btn btn-success mt-12" name="btn_editar_odonto" onclick="return confirmarEdicion()">
 
                             
 
@@ -89,7 +89,9 @@
 
         // Si el usuario hace clic en "Aceptar", la acción se realizará
         if (confirmacion) {
-            window.location.href = "<?php $_SERVER['Main'];?>?btn_editar_odonto=";
+            return true;
+        }else{
+          return false;
         }
 
         // Devuelve false para evitar que el enlace se siga automáticamente
